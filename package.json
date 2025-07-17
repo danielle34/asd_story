@@ -1,0 +1,1 @@
+{"scripts":{"dev":"concurrently -k -n api,client -c green,blue \"uvicorn backend.app:app --reload --port 8001\" \"npm start --prefix frontend\""},"devDependencies":{"concurrently":"^9.2.0"}}

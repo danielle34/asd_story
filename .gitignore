@@ -1,0 +1,45 @@
+########################
+#  Python | FastAPI
+########################
+# virtual-envs
+venv/
+env/
+.venv/
+ENV/
+# compiled files / caches
+__pycache__/
+*.py[cod]
+*.so
+*.pyd
+# tooling caches
+.mypy_cache/
+.pytest_cache/
+.dmypy.json
+.pyre/
+
+########################
+#  Node / React
+########################
+# dependencies
+node_modules/
+frontend/node_modules/
+# local env files
+*.env*
+frontend/.env.local
+frontend/.env.*.local
+# build / dist outputs
+frontend/build/
+frontend/dist/
+coverage/           # jest / nyc / istanbul
+.nyc_output/
+
+########################
+#  Editor & OS noise
+########################
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
