@@ -372,3 +372,79 @@ h2 {
 .regenerate-btn:hover {
   background-color: #ec948d;
 }
+
+
+
+
+.generated-result {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.scene-display {
+  margin: 20px auto;
+  max-width: 100%;
+}
+
+.generated-image-centered {
+  width: 100%;
+  max-width: 400px; /* You can adjust this size */
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  margin-top: 16px;
+}
+
+.used-faces {
+  margin-top: 20px;
+}
+
+.face-row-small {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.face-thumb-small {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ccc;
+}
+
+.result-buttons {
+  margin-top: 20px;
+}
+
+.regenerate-btn {
+  background-color: #5c6bc0;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.regenerate-btn:hover {
+  background-color: #3f51b5;
+}
+
+
+.final-prompt-edit {
+  margin-top: 20px;
+  text-align: left;
+}
+
+.final-prompt-textarea {
+  width: 100%;
+  max-width: 600px;
+  height: 100px;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  resize: vertical;
+}
