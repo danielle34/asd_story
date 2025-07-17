@@ -79,9 +79,6 @@ async def upload_image(file: UploadFile = File(...)):
         "faces":    cropped,
     })
 
-#
-# ─── New DreamO Generation Endpoint ──────────────────────────────
-#
 @app.post("/generate-image")
 async def generate_image(
     ref_image1: UploadFile           = File(...),
@@ -89,37 +86,47 @@ async def generate_image(
     ref_task1: str                   = Form("ip"),
     ref_task2: str                   = Form("ip"),
     prompt: str                      = Form(...),
+    ref_res: int                     = Form(512),
+    seed: str                        = Form("-1"),
+    guidance_scale: float            = Form(4.5),
+    num_inference_steps: int         = Form(12),
+    true_cfg_scale: float            = Form(1.0),
+    true_cfg_start_step: int         = Form(0),
+    true_cfg_end_step: int           = Form(0),
+    negative_prompt: str             = Form(""),
+    neg_guidance_scale: float        = Form(3.5),
+    first_step_guidance_scale: float = Form(4.5),
 ):
-    # 2) load and preprocess
+    # 1. Read input images
     img1 = _read_image(ref_image1)
     img2 = _read_image(ref_image2) if ref_image2 else None
 
-    # 3) DreamO pre-conditioning
+    # 2. Pre-condition
     ref_conds, debug_imgs, seed = generator.pre_condition(
         ref_images=[img1, img2],
         ref_tasks =[ref_task1, ref_task2],
-        ref_res   =512,
-        seed      ="-1",
+        ref_res   = ref_res,
+        seed      = seed,
     )
 
-    # 4) Run DreamO pipeline
+    # 3. Run generation
     out = generator.dreamo_pipeline(
-        prompt                     = prompt,
-        width                      = 512,
-        height                     = 512,
-        num_inference_steps        = 12,
-        guidance_scale             = 4.5,
-        ref_conds                  = ref_conds,
-        generator                  = torch.Generator(device="cpu").manual_seed(seed),
-        true_cfg_scale             = 1.0,
-        true_cfg_start_step        = 0,
-        true_cfg_end_step          = 0,
-        negative_prompt            = "",
-        neg_guidance_scale         = 3.5,
-        first_step_guidance_scale  = 4.5,
+        prompt                      = prompt,
+        width                       = ref_res,
+        height                      = ref_res,
+        num_inference_steps         = num_inference_steps,
+        guidance_scale              = guidance_scale,
+        ref_conds                   = ref_conds,
+        generator                   = torch.Generator(device="cpu").manual_seed(seed),
+        true_cfg_scale              = true_cfg_scale,
+        true_cfg_start_step         = true_cfg_start_step,
+        true_cfg_end_step           = true_cfg_end_step,
+        negative_prompt             = negative_prompt,
+        neg_guidance_scale          = neg_guidance_scale,
+        first_step_guidance_scale   = first_step_guidance_scale,
     ).images[0]
 
-    # 5) encode as base64
+    # 4. Encode to base64
     buf = io.BytesIO()
     Image.fromarray(np.array(out)).save(buf, format="PNG")
     img_b64 = base64.b64encode(buf.getvalue()).decode("utf-8")
