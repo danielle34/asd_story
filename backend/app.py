@@ -53,6 +53,19 @@ def _read_image(upload: UploadFile) -> np.ndarray:
         raise HTTPException(status_code=400, detail=f"Invalid image file {upload.filename}")
     return cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 
+
+#
+# ─── even qa ─────────────────────────────────
+#
+from transformers import pipeline
+
+# Load QA model once
+qa_pipe = pipeline(
+    "question-answering",
+    model="veronica320/QA-for-Event-Extraction"
+)
+
+
 #
 # ─── Existing Face‐Crop Endpoint ─────────────────────────────────
 #
@@ -135,3 +148,17 @@ async def generate_image(
         "image": img_b64,
         "seed":  seed,
     })
+
+from pydantic import BaseModel
+
+class QARequest(BaseModel):
+    question: str
+    context: str
+
+@app.post("/ask-question")
+async def ask_question(payload: QARequest):
+    try:
+        result = qa_pipe(question=payload.question, context=payload.context)
+        return {"answer": result["answer"]}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))

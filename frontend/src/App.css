@@ -448,3 +448,41 @@ h2 {
   border-radius: 6px;
   resize: vertical;
 }
+
+
+
+
+.qa-test {
+  margin-top: 40px;
+  padding: 20px;
+}
+
+.qa-input {
+  display: block;
+  width: 100%;
+  max-width: 600px;
+  margin: 10px 0 20px 0;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.qa-btn {
+  padding: 10px 20px;
+  background-color: #5c6bc0;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.qa-btn:hover {
+  background-color: #3f51b5;
+}
+
+.qa-answer {
+  margin-top: 20px;
+  font-size: 16px;
+}

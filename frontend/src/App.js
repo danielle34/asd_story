@@ -39,6 +39,10 @@ function App() {
   const [generatedImage, setGeneratedImage] = useState(null)
   const [loading, setLoading] = useState(false)
 
+  const [qaContext, setQaContext] = useState('');
+  const [qaQuestion, setQaQuestion] = useState('');
+  const [qaAnswer, setQaAnswer] = useState('');
+
 
   const preExistingScenarios = [
     "____ goes to the store with their parent ____.",
@@ -84,71 +88,98 @@ function App() {
       setDroppedFaces(newDropped);
     }
   };
-const handleGenerate = async () => {
-  const rawPrompt = selectedScenario || customScenario;
-  if (!droppedFaces[0] || !rawPrompt) return;
+  const handleGenerate = async () => {
+    const rawPrompt = selectedScenario || customScenario;
+    if (!droppedFaces[0] || !rawPrompt) return;
 
-  setLoading(true);
-  const fd = new FormData();
+    setLoading(true);
+    const fd = new FormData();
 
-  // Build processed prompt (auto or from finalPrompt textarea)
-  let processedPrompt = finalPrompt;
-  if (!finalPrompt.trim()) {
-    let personCount = 0;
-    const promptParts = rawPrompt.split('____');
-    processedPrompt = promptParts.reduce((acc, part, i) => {
-      acc += part;
-      if (i < droppedFaces.length && droppedFaces[i]) {
-        personCount++;
-        acc += `person ${personCount}`;
-      }
-      return acc;
-    }, '');
-    setFinalPrompt(processedPrompt); // Set for editing
+    // Build processed prompt (auto or from finalPrompt textarea)
+    let processedPrompt = finalPrompt;
+    if (!finalPrompt.trim()) {
+      let personCount = 0;
+      const promptParts = rawPrompt.split('____');
+      processedPrompt = promptParts.reduce((acc, part, i) => {
+        acc += part;
+        if (i < droppedFaces.length && droppedFaces[i]) {
+          personCount++;
+          acc += `person ${personCount}`;
+        }
+        return acc;
+      }, '');
+      setFinalPrompt(processedPrompt); // Set for editing
+    }
+
+    // Resize dropped face 1
+    if (droppedFaces[0]) {
+      const resizedFace1 = await resizeBase64Img(droppedFaces[0], 512, 512);
+      fd.append('ref_image1', b64toFile(resizedFace1, 'face1.jpg'));
+      fd.append('ref_task1', 'ip');
+    }
+
+    // Resize dropped face 2
+    if (droppedFaces[1]) {
+      const resizedFace2 = await resizeBase64Img(droppedFaces[1], 512, 512);
+      fd.append('ref_image2', b64toFile(resizedFace2, 'face2.jpg'));
+      fd.append('ref_task2', 'ip');
+    }
+
+    // Add prompt and quality parameters
+    fd.append('prompt', processedPrompt);
+    fd.append('ref_res', '512'); // match resize above
+    fd.append('seed', '-1');
+    fd.append('guidance_scale', '7.5');
+    fd.append('num_inference_steps', '30');
+    fd.append('true_cfg_scale', '1.0');
+    fd.append('true_cfg_start_step', '0');
+    fd.append('true_cfg_end_step', '0');
+    fd.append('negative_prompt', '');
+    fd.append('neg_guidance_scale', '3.5');
+    fd.append('first_step_guidance_scale', '4.5');
+
+    try {
+      const res = await fetch('http://localhost:8811/generate-image', {
+        method: 'POST',
+        body: fd,
+      });
+
+      const { image } = await res.json();
+      setGeneratedImage(image);
+    } catch (err) {
+      console.error(err);
+      alert('Generation failed');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleQaSubmit = async () => {
+  if (!qaContext.trim() || !qaQuestion.trim()) {
+    alert("Please enter both a context and a question.");
+    return;
   }
-
-  // Resize dropped face 1
-  if (droppedFaces[0]) {
-    const resizedFace1 = await resizeBase64Img(droppedFaces[0], 512, 512);
-    fd.append('ref_image1', b64toFile(resizedFace1, 'face1.jpg'));
-    fd.append('ref_task1', 'ip');
-  }
-
-  // Resize dropped face 2
-  if (droppedFaces[1]) {
-    const resizedFace2 = await resizeBase64Img(droppedFaces[1], 512, 512);
-    fd.append('ref_image2', b64toFile(resizedFace2, 'face2.jpg'));
-    fd.append('ref_task2', 'ip');
-  }
-
-  // Add prompt and quality parameters
-  fd.append('prompt', processedPrompt);
-  fd.append('ref_res', '512'); // match resize above
-  fd.append('seed', '-1');
-  fd.append('guidance_scale', '7.5');
-  fd.append('num_inference_steps', '30');
-  fd.append('true_cfg_scale', '1.0');
-  fd.append('true_cfg_start_step', '0');
-  fd.append('true_cfg_end_step', '0');
-  fd.append('negative_prompt', '');
-  fd.append('neg_guidance_scale', '3.5');
-  fd.append('first_step_guidance_scale', '4.5');
 
   try {
-    const res = await fetch('http://localhost:8811/generate-image', {
-      method: 'POST',
-      body: fd,
+    const res = await fetch("http://localhost:8811/ask-question", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        context: qaContext,
+        question: qaQuestion,
+      }),
     });
 
-    const { image } = await res.json();
-    setGeneratedImage(image);
+    const data = await res.json();
+    setQaAnswer(data.answer || "No answer found.");
   } catch (err) {
     console.error(err);
-    alert('Generation failed');
-  } finally {
-    setLoading(false);
+    setQaAnswer("Error fetching answer.");
   }
 };
+
+
+
   return (
     <div className="app">
 
@@ -306,66 +337,103 @@ const handleGenerate = async () => {
 
       )}
 
-{generatedImage && (
-  <section className="generated-result card-box">
-    <h2 className="section-heading">📸 Your Personalized Scene</h2>
+      {generatedImage && (
+        <section className="generated-result card-box">
+          <h2 className="section-heading">📸 Your Personalized Scene</h2>
 
-    {/* Show the prompt used */}
-    <div className="prompt-review">
-      <h3>📝 Prompt Used</h3>
-      <p className="prompt-text">{selectedScenario || customScenario}</p>
-    </div>
-
-    {/* Show the dropped faces used */}
-    <div className="used-faces">
-      <h3>👥 Faces Used</h3>
-      <div className="face-row-small">
-        {droppedFaces.filter(Boolean).map((face, i) => (
-          <div className="face-thumb-container" key={i}>
-            <img
-              src={`data:image/jpeg;base64,${face}`}
-              alt={`Used Face ${i}`}
-              className="face-thumb-small"
-            />
-            <span className="face-label">Person {i + 1}</span>
+          {/* Show the prompt used */}
+          <div className="prompt-review">
+            <h3>📝 Prompt Used</h3>
+            <p className="prompt-text">{selectedScenario || customScenario}</p>
           </div>
-        ))}
-      </div>
-    </div>
 
-<div className="final-prompt-edit">
-  <h3>Edit Final Prompt</h3>
-  <textarea
-    value={finalPrompt}
-    onChange={(e) => setFinalPrompt(e.target.value)}
-    className="final-prompt-textarea"
-    placeholder="This is the actual prompt that will be sent into the model."
-  />
-</div>
+          {/* Show the dropped faces used */}
+          <div className="used-faces">
+            <h3>👥 Faces Used</h3>
+            <div className="face-row-small">
+              {droppedFaces.filter(Boolean).map((face, i) => (
+                <div className="face-thumb-container" key={i}>
+                  <img
+                    src={`data:image/jpeg;base64,${face}`}
+                    alt={`Used Face ${i}`}
+                    className="face-thumb-small"
+                  />
+                  <span className="face-label">Person {i + 1}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="final-prompt-edit">
+            <h3>Edit Final Prompt</h3>
+            <textarea
+              value={finalPrompt}
+              onChange={(e) => setFinalPrompt(e.target.value)}
+              className="final-prompt-textarea"
+              placeholder="This is the actual prompt that will be sent into the model."
+            />
+          </div>
 
 
-    {/* Show the actual result */}
-    <div className="scene-display">
-      <h3>🖼️ Generated Scene</h3>
-      <img
-        src={`data:image/png;base64,${generatedImage}`}
-        alt="Generated Scene"
-        className="generated-image-centered"
-      />
-    </div>
+          {/* Show the actual result */}
+          <div className="scene-display">
+            <h3>🖼️ Generated Scene</h3>
+            <img
+              src={`data:image/png;base64,${generatedImage}`}
+              alt="Generated Scene"
+              className="generated-image-centered"
+            />
+          </div>
 
-    {/* Regenerate button */}
-    <div className="result-buttons">
-      <button
-        className="regenerate-btn"
-        onClick={handleGenerate}
-        disabled={loading}
-      >
-        🔁 {loading ? 'Regenerating…' : 'Regenerate Scene'}
-      </button>
-    </div>
-  </section>
-)}
+          {/* Regenerate button */}
+          <div className="result-buttons">
+            <button
+              className="regenerate-btn"
+              onClick={handleGenerate}
+              disabled={loading}
+            >
+              🔁 {loading ? 'Regenerating…' : 'Regenerate Scene'}
+            </button>
+          </div>
+        </section>
+      )}
+
+      <section className="qa-test card-box">
+        <h2>🔍 Test Q&A Model</h2>
+
+        <label>
+          <strong>Context</strong>
+          <textarea
+            className="qa-input"
+            value={qaContext}
+            onChange={(e) => setQaContext(e.target.value)}
+            placeholder="Paste a paragraph of context here..."
+          />
+        </label>
+
+        <label>
+          <strong>Question</strong>
+          <input
+            className="qa-input"
+            type="text"
+            value={qaQuestion}
+            onChange={(e) => setQaQuestion(e.target.value)}
+            placeholder="Type your question..."
+          />
+        </label>
+
+        <button className="qa-btn" onClick={handleQaSubmit}>
+          Ask
+        </button>
+
+        {qaAnswer && (
+          <div className="qa-answer">
+            <strong>Answer:</strong> {qaAnswer}
+          </div>
+        )}
+      </section>
+
+
 
 
     </div>
