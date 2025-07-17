@@ -1,0 +1,374 @@
+/* ================== */
+/* 🌟 Global Resets 🌟 */
+/* ================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background: linear-gradient(to bottom, #fdf8ff, #f5f2fa);
+  color: #222;
+}
+
+/* ============================ */
+/* 🌈 Reusable Card Box Styles */
+/* ============================ */
+.card-box {
+  background: #ffffff;
+  border: 2px dashed #e0d2ff;
+  border-radius: 20px;
+  box-shadow: 0 6px 18px rgba(160, 120, 255, 0.08);
+  padding: 2rem;
+  margin: 2rem auto;
+  width: 90%;
+  max-width: 960px;
+}
+
+/* ========================== */
+/* 🎯 Section + Headings UI  */
+/* ========================== */
+.section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.6rem;
+  margin-bottom: 1.5rem;
+  color: #6c2dc7;
+}
+
+.section-heading span {
+  font-size: 2rem;
+  margin-right: 0.5rem;
+}
+
+h1 {
+  color: #8e44ad;
+  font-size: 2.4rem;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+h2 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  color: #6c2dc7;
+  text-align: center;
+}
+
+/* ====================== */
+/* 📤 Upload Button Area  */
+/* ====================== */
+.upload-button {
+  display: inline-block;
+  background-color: #a03abb;
+  color: white;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  margin-top: 1.5rem;
+  transition: background-color 0.3s ease;
+}
+
+.intro-upload-area {
+  text-align: center;
+}
+.upload-button:hover {
+  background-color: #884ea0;
+}
+
+.upload-note {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  color: #555;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+/* =================== */
+/* 🧑‍🤝‍🧑 Face Selection */
+/* =================== */
+.face-boxes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.face-container {
+  position: relative;
+}
+
+.face-box {
+  width: 120px;
+  height: 120px;
+  border-radius: 12px;
+  object-fit: cover;
+  border: 2px solid #ccc;
+  cursor: grab;
+  transition: transform 0.2s;
+}
+.face-box:active {
+  cursor: grabbing;
+  transform: scale(1.03);
+}
+
+.delete-button {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: red;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+/* ====================== */
+/* 📸 Preview Family Image */
+/* ====================== */
+.preview {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: #999;
+}
+
+.preview img {
+  max-width: 100%;
+  border-radius: 12px;
+  margin-top: 1rem;
+  border: 2px dashed #ddd;
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+}
+
+/* ======================= */
+/* ✅ Approval Button      */
+/* ======================= */
+.start-btn-container {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.start-btn {
+  background-color: #8d34c2;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.start-btn:hover {
+  background-color: #7c2cae;
+}
+
+/* ========================== */
+/* 📝 Scenario Builder Layout */
+/* ========================== */
+.scenario-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem 0;
+}
+
+.scenario-left,
+.scenario-right {
+  flex: 1 1 400px;
+  max-width: 600px;
+  background: #fff;
+  border: 2px dashed #d8c1ff;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 10px rgba(160, 120, 255, 0.05);
+}
+
+.custom-input {
+  width: 100%;
+  min-height: 100px;
+  padding: 1rem;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  font-size: 1rem;
+  resize: vertical;
+  margin-bottom: 1rem;
+}
+
+/* ======================== */
+/* 📚 Pre-Existing Prompts  */
+/* ======================== */
+.pre-existing-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.pre-item {
+  padding: 0.75rem;
+  background-color: #f0e6ff;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 1px solid #d1bfff;
+  transition: background-color 0.2s;
+}
+.pre-item:hover {
+  background-color: #e2d6ff;
+}
+
+/* ========================== */
+/* 🙋‍♂️ Approved Faces for Prompt */
+/* ========================== */
+.face-row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+.face-box-small {
+  width: 80px;
+  height: 80px;
+  border-radius: 12px;
+  object-fit: cover;
+  border: 2px solid #ccc;
+}
+
+/* ======================= */
+/* 💬 Prompt and Sentence  */
+/* ======================= */
+.prompt-box {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background-color: #f5edff;
+  border: 2px dashed #a569bd;
+  border-radius: 12px;
+  font-style: italic;
+  text-align: center;
+  color: #333;
+}
+
+.generated-sentence {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  background: #fff;
+}
+
+/* ================ */
+/* 🟣 Drop Circles   */
+/* ================ */
+.blank-circle {
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  background-color: #b3e5fc;
+  border-radius: 50%;
+  margin: 0 0.5rem;
+  vertical-align: middle;
+  overflow: hidden;
+  position: relative;
+  border: 2px dashed #aaa;
+}
+
+.face-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* ================ */
+/* ✏️ Edit Button   */
+/* ================ */
+.edit-btn {
+  padding: 0.7rem 1.5rem;
+  background-color: #dcb4ff;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: block;
+  margin: 0 auto;
+}
+.edit-btn:hover {
+  background-color: #c699f5;
+}
+.intro-text {
+  font-size: 1.1rem;
+  color: #444;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* ============================= */
+/* 🧾 Review Scene Preview Styles */
+/* ============================= */
+.generated-image-container {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.generated-image {
+  max-width: 100%;
+  max-height: 400px;
+  border-radius: 16px;
+  border: 2px dashed #d8c1ff;
+  box-shadow: 0 4px 12px rgba(160, 120, 255, 0.08);
+  object-fit: cover;
+}
+
+.review-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.approve-btn,
+.regenerate-btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.approve-btn {
+  background-color: #7dcea0;
+  color: #fff;
+}
+
+.approve-btn:hover {
+  background-color: #66bb8a;
+}
+
+.regenerate-btn {
+  background-color: #f5b7b1;
+  color: #fff;
+}
+
+.regenerate-btn:hover {
+  background-color: #ec948d;
+}
