@@ -100,7 +100,7 @@ const handleGenerate = async () => {
       method: 'POST',
       body: fd,
     })
-    const { image /* base64 PNG */, seed } = await res.json()
+    const { image /* base64 PNG */ } = await res.json()
     setGeneratedImage(image)
   } catch (err) {
     console.error(err)
