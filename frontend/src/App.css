@@ -78,6 +78,7 @@ h2 {
 .intro-upload-area {
   text-align: center;
 }
+
 .upload-button:hover {
   background-color: #884ea0;
 }
@@ -116,6 +117,7 @@ h2 {
   cursor: grab;
   transition: transform 0.2s;
 }
+
 .face-box:active {
   cursor: grabbing;
   transform: scale(1.03);
@@ -219,6 +221,7 @@ h2 {
   flex-direction: column;
   gap: 0.75rem;
 }
+
 .pre-item {
   padding: 0.75rem;
   background-color: #f0e6ff;
@@ -227,6 +230,7 @@ h2 {
   border: 1px solid #d1bfff;
   transition: background-color 0.2s;
 }
+
 .pre-item:hover {
   background-color: #e2d6ff;
 }
@@ -241,6 +245,7 @@ h2 {
   justify-content: center;
   margin-bottom: 1rem;
 }
+
 .face-box-small {
   width: 80px;
   height: 80px;
@@ -310,9 +315,11 @@ h2 {
   display: block;
   margin: 0 auto;
 }
+
 .edit-btn:hover {
   background-color: #c699f5;
 }
+
 .intro-text {
   font-size: 1.1rem;
   color: #444;
@@ -391,10 +398,11 @@ h2 {
 
 .generated-image-centered {
   width: 100%;
-  max-width: 400px; /* You can adjust this size */
+  max-width: 400px;
+  /* You can adjust this size */
   height: auto;
   border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   margin-top: 16px;
 }
 
@@ -467,14 +475,15 @@ h2 {
 }
 
 .qa-input {
-  display: block;
   width: 100%;
-  max-width: 600px;
-  margin: 10px 0 20px 0;
-  padding: 10px;
-  font-size: 14px;
+  max-width: 100%;
+  height: 140px;
+  padding: 16px;
+  font-size: 16px;
   border: 1px solid #ccc;
-  border-radius: 6px;
+  border-radius: 8px;
+  background-color: #fefefe;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .qa-btn {
@@ -517,22 +526,30 @@ h2 {
   padding: 16px;
   border-radius: 10px;
   min-height: 160px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
 .qa-block h4 {
-  font-size: 16px;
+  font-size: 26px;
   font-weight: bold;
   margin-bottom: 6px;
 }
 
 .qa-block p {
-  font-size: 14px;
-  color: #333;
-  margin-top: 10px;
+  font-size: 24px;
+  /* make it larger */
+  font-weight: 500;
+  /* medium weight for better emphasis */
+  color: #1a202c;
+  /* darker color for better contrast */
+  line-height: 1.6;
+  /* more readable spacing */
+  margin-top: 12px;
+  word-wrap: break-word;
+  /* ensures long text wraps properly */
 }
 
 .qa-small-btn {
@@ -550,6 +567,111 @@ h2 {
   background-color: #3f51b5;
 }
 
+.qa-block {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+}
+
+.qa-block:hover {
+  transform: translateY(-4px);
+}
+
+.qa-block h4 {
+  color: #5c6bc0;
+  font-weight: 600;
+}
 
 
 
+
+
+
+
+.final-prompt-edit {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.edit-toggle-btn {
+  background: none;
+  border: none;
+  color: #0056b3;
+  text-align: left;
+  padding: 0;
+  font-size: 0.95rem;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.final-prompt-textarea {
+  font-size: 0.85rem;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  resize: vertical;
+  min-height: 80px;
+}
+
+
+
+
+.highlighted-context-box {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #fefeff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.highlighted-context-box h3 {
+  font-size: 18px;
+  margin-bottom: 14px;
+  color: #4c51bf;
+}
+
+.highlighted-text {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* Highlight Colors */
+.highlight-who {
+  background-color: #e0f2f1;
+  border-radius: 4px;
+  padding: 2px 4px;
+}
+
+.highlight-what {
+  background-color: #e8eaf6;
+  border-radius: 4px;
+  padding: 2px 4px;
+}
+
+.highlight-when {
+  background-color: #fff3e0;
+  border-radius: 4px;
+  padding: 2px 4px;
+}
+
+.highlight-where {
+  background-color: #fce4ec;
+  border-radius: 4px;
+  padding: 2px 4px;
+}
+
+.highlight-why {
+  background-color: #f3e5f5;
+  border-radius: 4px;
+  padding: 2px 4px;
+}
+
+.highlight-how {
+  background-color: #ede7f6;
+  border-radius: 4px;
+  padding: 2px 4px;
+}

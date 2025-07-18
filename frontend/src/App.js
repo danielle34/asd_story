@@ -28,7 +28,7 @@ function resizeBase64Img(base64, width = 512, height = 512) {
 
 
 function App() {
-  const [useFullImage, setUseFullImage] = useState(true); // default to full image
+  const [useFullImage] = useState(true); // default to full image
   const [fullImageBase64, setFullImageBase64] = useState(null);
   const [qaAnswers, setQaAnswers] = useState({});
   const [finalPrompt, setFinalPrompt] = useState('');
@@ -43,10 +43,13 @@ function App() {
   const [loading, setLoading] = useState(false)
 
   const [qaContext, setQaContext] = useState('');
+
+  const [showPromptEditor, setShowPromptEditor] = useState(false);
+
   // const [qaQuestion, setQaQuestion] = useState('');
   // const [qaAnswer, setQaAnswer] = useState('');
   const [selectedFaceIndex, setSelectedFaceIndex] = useState(null);
-const [faceBoxes] = useState([]);
+  const [faceBoxes] = useState([]);
   const preExistingScenarios = [
     "____ goes to the store with their parent ____.",
     "____ visits the hair salon and greets the stylist.",
@@ -247,6 +250,32 @@ const [faceBoxes] = useState([]);
     });
   };
 
+  const highlightContext = (text, answers) => {
+    let coloredText = text;
+    const types = ["Who?", "What?", "When?", "Where?", "Why?", "How?"];
+
+    types.forEach((type) => {
+      const answer = answers[type];
+      if (
+        answer &&
+        answer.trim().length > 1 &&
+        text.toLowerCase().includes(answer.toLowerCase())
+      ) {
+        const escaped = answer.replace(/[-\\^$*+?.()|[\]{}]/g, "\\$&"); // escape special chars
+        const className = `highlight-${type.toLowerCase().replace(/\?/g, "")}`;
+        const regex = new RegExp(`\\b(${escaped})\\b`, "gi"); // match whole words only
+
+        coloredText = coloredText.replace(
+          regex,
+          `<span class="${className}">$1</span>`
+        );
+      }
+    });
+
+    return <span dangerouslySetInnerHTML={{ __html: coloredText }} />;
+  };
+
+
 
   return (
     <div className="app">
@@ -274,7 +303,7 @@ const [faceBoxes] = useState([]);
       </section>
 
       <section className="card-box selection-area">
-        <h2>👨‍👩‍👧‍👦 Approve Family Members</h2>
+        <h2>Approve Family Members</h2>
         {/* <p className="intro-text">
           Below are the detected faces from your uploaded image. If you would like to exclude any, simply click the ✕ button in the top-right corner of the face.
         </p> */}
@@ -403,14 +432,6 @@ const [faceBoxes] = useState([]);
             </button>
 
           </div>
-          <label style={{ display: 'block', marginTop: '20px' }}>
-            <input
-              type="checkbox"
-              checked={useFullImage}
-              onChange={(e) => setUseFullImage(e.target.checked)}
-            />
-            Use full uploaded image instead of cropped faces
-          </label>
 
 
 
@@ -421,45 +442,63 @@ const [faceBoxes] = useState([]);
 
       {generatedImage && (
         <section className="generated-result card-box">
-          <h2 className="section-heading">📸 Your Personalized Scene</h2>
+          <h2 className="section-heading">Your Personalized Scene</h2>
 
-          {/* Show the prompt used */}
-          <div className="prompt-review">
-            <h3>📝 Prompt Used</h3>
-            <p className="prompt-text">{selectedScenario || customScenario}</p>
+          {/* Sentence display */}
+          <div className="generated-sentence">
+            {(() => {
+              const scenario = selectedScenario || customScenario || '';
+              const parts = scenario.split('____');
+              const elements = [];
+
+              for (let i = 0; i < parts.length; i++) {
+                elements.push(<span key={`text-${i}`}>{parts[i]}</span>);
+                if (i < parts.length - 1) {
+                  elements.push(
+                    <span
+                      key={`drop-${i}`}
+                      className="blank-circle"
+                      onDragOver={(e) => e.preventDefault()}
+                      onDrop={(e) => handleDrop(e, i)}
+                    >
+                      {droppedFaces[i] && (
+                        <img
+                          src={`data:image/jpeg;base64,${droppedFaces[i]}`}
+                          alt=""
+                          className="face-thumb"
+                        />
+                      )}
+                    </span>
+                  );
+                }
+              }
+
+              return elements;
+            })()}
           </div>
 
-          {/* Show the dropped faces used */}
-          <div className="used-faces">
-            <h3>👥 Faces Used</h3>
-            <div className="face-row-small">
-              {droppedFaces.filter(Boolean).map((face, i) => (
-                <div className="face-thumb-container" key={i}>
-                  <img
-                    src={`data:image/jpeg;base64,${face}`}
-                    alt={`Used Face ${i}`}
-                    className="face-thumb-small"
-                  />
-                  <span className="face-label">Person {i + 1}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
+          {/* Final prompt edit section */}
           <div className="final-prompt-edit">
-            <h3>Edit Final Prompt</h3>
-            <textarea
-              value={finalPrompt}
-              onChange={(e) => setFinalPrompt(e.target.value)}
-              className="final-prompt-textarea"
-              placeholder="This is the actual prompt that will be sent into the model."
-            />
+            <button
+              className="edit-toggle-btn"
+              onClick={() => setShowPromptEditor(!showPromptEditor)}
+            >
+              {showPromptEditor ? 'Hide Final Prompt' : 'Edit Final Prompt'}
+            </button>
+
+            {showPromptEditor && (
+              <textarea
+                value={finalPrompt}
+                onChange={(e) => setFinalPrompt(e.target.value)}
+                className="final-prompt-textarea"
+                placeholder="This is the actual prompt that will be sent into the model."
+              />
+            )}
           </div>
 
-
-          {/* Show the actual result */}
+          {/* Generated image */}
           <div className="scene-display">
-            <h3>🖼️ Generated Scene</h3>
+            <h3 className="subheading">Generated Scene</h3>
             <img
               src={`data:image/png;base64,${generatedImage}`}
               alt="Generated Scene"
@@ -467,14 +506,14 @@ const [faceBoxes] = useState([]);
             />
           </div>
 
-          {/* Regenerate button */}
+          {/* Action buttons */}
           <div className="result-buttons">
             <button
               className="regenerate-btn"
               onClick={handleGenerate}
               disabled={loading}
             >
-              🔁 {loading ? 'Regenerating…' : 'Regenerate Scene'}
+              {loading ? 'Regenerating…' : 'Regenerate Scene'}
             </button>
           </div>
         </section>
@@ -507,8 +546,16 @@ const [faceBoxes] = useState([]);
             ))}
           </div>
         )}
-      </section>
 
+        {Object.keys(qaAnswers).length > 0 && (
+          <div className="highlighted-context-box">
+            <h3>Highlighted Answer Sources</h3>
+            <p className="highlighted-text">
+              {highlightContext(qaContext, qaAnswers)}
+            </p>
+          </div>
+        )}
+      </section>
 
 
 
