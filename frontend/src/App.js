@@ -28,6 +28,9 @@ function resizeBase64Img(base64, width = 512, height = 512) {
 
 
 function App() {
+  const [useFullImage, setUseFullImage] = useState(true); // default to full image
+  const [fullImageBase64, setFullImageBase64] = useState(null);
+  const [qaAnswers, setQaAnswers] = useState({});
   const [finalPrompt, setFinalPrompt] = useState('');
   const [imagePreview, setImagePreview] = useState(null);
   const [faces, setFaces] = useState([]);
@@ -40,10 +43,10 @@ function App() {
   const [loading, setLoading] = useState(false)
 
   const [qaContext, setQaContext] = useState('');
-  const [qaQuestion, setQaQuestion] = useState('');
-  const [qaAnswer, setQaAnswer] = useState('');
-
-
+  // const [qaQuestion, setQaQuestion] = useState('');
+  // const [qaAnswer, setQaAnswer] = useState('');
+  const [selectedFaceIndex, setSelectedFaceIndex] = useState(null);
+const [faceBoxes] = useState([]);
   const preExistingScenarios = [
     "____ goes to the store with their parent ____.",
     "____ visits the hair salon and greets the stylist.",
@@ -52,12 +55,34 @@ function App() {
     "____ goes to the doctor and talks about their symptoms."
   ];
 
+  // const handleImageUpload = async (event) => {
+  //   const file = event.target.files[0];
+  //   if (!file) return;
+
+  //   const reader = new FileReader();
+  //   reader.onloadend = () => setImagePreview(reader.result);
+  //   reader.readAsDataURL(file);
+
+  //   const formData = new FormData();
+  //   formData.append('file', file);
+
+  //   const res = await fetch('http://localhost:8811/upload-image', {
+  //     method: 'POST',
+  //     body: formData,
+  //   });
+
+  //   const data = await res.json();
+  //   setFaces(data.faces || []);
+  // };
   const handleImageUpload = async (event) => {
     const file = event.target.files[0];
     if (!file) return;
 
     const reader = new FileReader();
-    reader.onloadend = () => setImagePreview(reader.result);
+    reader.onloadend = () => {
+      setImagePreview(reader.result); // preview
+      setFullImageBase64(reader.result.split(',')[1]); // base64 only
+    };
     reader.readAsDataURL(file);
 
     const formData = new FormData();
@@ -71,7 +96,6 @@ function App() {
     const data = await res.json();
     setFaces(data.faces || []);
   };
-
   const removeFace = (index) => {
     setFaces(faces.filter((_, i) => i !== index));
   };
@@ -90,12 +114,12 @@ function App() {
   };
   const handleGenerate = async () => {
     const rawPrompt = selectedScenario || customScenario;
-    if (!droppedFaces[0] || !rawPrompt) return;
+    if (!rawPrompt) return;
 
     setLoading(true);
     const fd = new FormData();
 
-    // Build processed prompt (auto or from finalPrompt textarea)
+    // Build prompt
     let processedPrompt = finalPrompt;
     if (!finalPrompt.trim()) {
       let personCount = 0;
@@ -108,26 +132,36 @@ function App() {
         }
         return acc;
       }, '');
-      setFinalPrompt(processedPrompt); // Set for editing
+      setFinalPrompt(processedPrompt);
     }
 
-    // Resize dropped face 1
-    if (droppedFaces[0]) {
-      const resizedFace1 = await resizeBase64Img(droppedFaces[0], 512, 512);
-      fd.append('ref_image1', b64toFile(resizedFace1, 'face1.jpg'));
+    // ========== IMAGE HANDLING ==========
+
+    if (useFullImage && fullImageBase64) {
+      const resized = await resizeBase64Img(fullImageBase64, 512, 512);
+      fd.append('ref_image1', b64toFile(resized, 'full_image.jpg'));
       fd.append('ref_task1', 'ip');
+    } else if (droppedFaces[0]) {
+      const masked = await createMaskedImage(imagePreview, faceBoxes, selectedFaceIndex);
+      const resized = await resizeBase64Img(masked, 512, 512);
+      fd.append('ref_image1', b64toFile(resized, 'masked.jpg'));
+      fd.append('ref_task1', 'ip');
+
+      if (droppedFaces[1]) {
+        const resized2 = await resizeBase64Img(droppedFaces[1], 512, 512);
+        fd.append('ref_image2', b64toFile(resized2, 'face2.jpg'));
+        fd.append('ref_task2', 'ip');
+      }
+    } else {
+      alert("No valid image reference found.");
+      setLoading(false);
+      return;
     }
 
-    // Resize dropped face 2
-    if (droppedFaces[1]) {
-      const resizedFace2 = await resizeBase64Img(droppedFaces[1], 512, 512);
-      fd.append('ref_image2', b64toFile(resizedFace2, 'face2.jpg'));
-      fd.append('ref_task2', 'ip');
-    }
+    // ========== GENERATION PARAMS ==========
 
-    // Add prompt and quality parameters
     fd.append('prompt', processedPrompt);
-    fd.append('ref_res', '512'); // match resize above
+    fd.append('ref_res', '512');
     fd.append('seed', '-1');
     fd.append('guidance_scale', '7.5');
     fd.append('num_inference_steps', '30');
@@ -154,34 +188,71 @@ function App() {
     }
   };
 
-  const handleQaSubmit = async () => {
-  if (!qaContext.trim() || !qaQuestion.trim()) {
-    alert("Please enter both a context and a question.");
-    return;
-  }
+  const handleAllSixSubmit = async () => {
+    if (!qaContext.trim()) {
+      alert("Please enter some context.");
+      return;
+    }
 
-  try {
-    const res = await fetch("http://localhost:8811/ask-question", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        context: qaContext,
-        question: qaQuestion,
-      }),
+    const questions = ["Who?", "What?", "When?", "Where?", "Why?", "How?"];
+    const newAnswers = {};
+
+    for (const question of questions) {
+      try {
+        const res = await fetch("http://localhost:8811/ask-question", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ context: qaContext, question }),
+        });
+
+        const data = await res.json();
+        newAnswers[question] = data.answer || "No answer found.";
+      } catch (err) {
+        newAnswers[question] = "Error fetching answer.";
+      }
+    }
+
+    setQaAnswers(newAnswers);
+  };
+  const formatAnswer = (text) => {
+    if (!text) return "";
+    return text.charAt(0).toUpperCase() + text.slice(1);
+  };
+
+  const createMaskedImage = (originalImgSrc, faceBoxes, selectedIndex) => {
+    return new Promise((resolve) => {
+      const img = new Image();
+      img.src = originalImgSrc;
+      img.onload = () => {
+        const canvas = document.createElement("canvas");
+        canvas.width = img.width;
+        canvas.height = img.height;
+        const ctx = canvas.getContext("2d");
+
+        // Draw original image
+        ctx.drawImage(img, 0, 0);
+
+        // Draw blocks over other faces
+        faceBoxes.forEach((box, i) => {
+          if (i !== selectedIndex) {
+            const [x, y, w, h] = box; // must be stored from CV2 or backend
+            ctx.fillStyle = "#000"; // black or use blur
+            ctx.fillRect(x, y, w, h);
+          }
+        });
+
+        const maskedBase64 = canvas.toDataURL("image/jpeg");
+        resolve(maskedBase64.split(",")[1]);
+      };
     });
-
-    const data = await res.json();
-    setQaAnswer(data.answer || "No answer found.");
-  } catch (err) {
-    console.error(err);
-    setQaAnswer("Error fetching answer.");
-  }
-};
-
+  };
 
 
   return (
     <div className="app">
+
+
+
 
       <section className="card-box intro-upload-area">
         <h1>Personalized Stories</h1>
@@ -210,19 +281,22 @@ function App() {
 
         <div className="face-boxes">
           {faces.map((face, i) => (
-            <div className="face-container" key={i}>
+            <div
+              className={`face-container ${selectedFaceIndex === i ? 'selected' : ''}`}
+              key={i}
+            >
               <img
                 src={`data:image/jpeg;base64,${face}`}
                 className="face-box"
                 alt={`Face ${i}`}
                 draggable
+                onClick={() => setSelectedFaceIndex(i)} // Select this face
                 onDragStart={(e) => e.dataTransfer.setData('faceIndex', i)}
               />
               <button className="delete-button" onClick={() => removeFace(i)}>✕</button>
             </div>
           ))}
         </div>
-
         <div className="preview">
           {imagePreview ? (
             <img src={imagePreview} alt="Family" className="preview-image" />
@@ -329,6 +403,14 @@ function App() {
             </button>
 
           </div>
+          <label style={{ display: 'block', marginTop: '20px' }}>
+            <input
+              type="checkbox"
+              checked={useFullImage}
+              onChange={(e) => setUseFullImage(e.target.checked)}
+            />
+            Use full uploaded image instead of cropped faces
+          </label>
 
 
 
@@ -399,7 +481,7 @@ function App() {
       )}
 
       <section className="qa-test card-box">
-        <h2>🔍 Test Q&A Model</h2>
+        <h2>Extract Key Info from Context</h2>
 
         <label>
           <strong>Context</strong>
@@ -411,24 +493,18 @@ function App() {
           />
         </label>
 
-        <label>
-          <strong>Question</strong>
-          <input
-            className="qa-input"
-            type="text"
-            value={qaQuestion}
-            onChange={(e) => setQaQuestion(e.target.value)}
-            placeholder="Type your question..."
-          />
-        </label>
-
-        <button className="qa-btn" onClick={handleQaSubmit}>
-          Ask
+        <button className="qa-btn" onClick={handleAllSixSubmit}>
+          Get Context
         </button>
 
-        {qaAnswer && (
-          <div className="qa-answer">
-            <strong>Answer:</strong> {qaAnswer}
+        {Object.keys(qaAnswers).length > 0 && (
+          <div className="qa-grid">
+            {["Who?", "What?", "When?", "Where?", "Why?", "How?"].map((question) => (
+              <div key={question} className="qa-block">
+                <h4>{question}</h4>
+                <p>{formatAnswer(qaAnswers[question])}</p>
+              </div>
+            ))}
           </div>
         )}
       </section>

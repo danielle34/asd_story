@@ -1,6 +1,6 @@
-/* ================== */
-/* 🌟 Global Resets 🌟 */
-/* ================== */
+/* ============================================= */
+/* 🌟 GLOBAL RESETS & BASE STYLES 🌟 */
+/* ============================================= */
 * {
   margin: 0;
   padding: 0;
@@ -13,9 +13,9 @@ body {
   color: #222;
 }
 
-/* ============================ */
-/* 🌈 Reusable Card Box Styles */
-/* ============================ */
+/* ============================================= */
+/* � REUSABLE CARD & CONTAINER STYLES 🎨 */
+/* ============================================= */
 .card-box {
   background: #ffffff;
   border: 2px dashed #e0d2ff;
@@ -27,9 +27,9 @@ body {
   max-width: 960px;
 }
 
-/* ========================== */
-/* 🎯 Section + Headings UI  */
-/* ========================== */
+/* ============================================= */
+/* 📝 TYPOGRAPHY & HEADINGS 📝 */
+/* ============================================= */
 .section-heading {
   display: flex;
   align-items: center;
@@ -59,9 +59,9 @@ h2 {
   text-align: center;
 }
 
-/* ====================== */
-/* 📤 Upload Button Area  */
-/* ====================== */
+/* ============================================= */
+/* 📤 FILE UPLOAD SECTION 📤 */
+/* ============================================= */
 .upload-button {
   display: inline-block;
   background-color: #a03abb;
@@ -92,9 +92,9 @@ h2 {
   text-align: center;
 }
 
-/* =================== */
-/* 🧑‍🤝‍🧑 Face Selection */
-/* =================== */
+/* ============================================= */
+/* 👥 FACE DETECTION & SELECTION 👥 */
+/* ============================================= */
 .face-boxes {
   display: flex;
   flex-wrap: wrap;
@@ -134,9 +134,9 @@ h2 {
   cursor: pointer;
 }
 
-/* ====================== */
-/* 📸 Preview Family Image */
-/* ====================== */
+/* ============================================= */
+/* �️ IMAGE PREVIEW SECTION 🖼️ */
+/* ============================================= */
 .preview {
   text-align: center;
   margin-top: 1rem;
@@ -154,9 +154,9 @@ h2 {
   object-fit: cover;
 }
 
-/* ======================= */
-/* ✅ Approval Button      */
-/* ======================= */
+/* ============================================= */
+/* ✅ ACTION BUTTONS (START/APPROVE) ✅ */
+/* ============================================= */
 .start-btn-container {
   margin-top: 1rem;
   text-align: center;
@@ -178,9 +178,9 @@ h2 {
   background-color: #7c2cae;
 }
 
-/* ========================== */
-/* 📝 Scenario Builder Layout */
-/* ========================== */
+/* ============================================= */
+/* 🎬 SCENARIO BUILDER LAYOUT 🎬 */
+/* ============================================= */
 .scenario-container {
   display: flex;
   flex-wrap: wrap;
@@ -211,9 +211,9 @@ h2 {
   margin-bottom: 1rem;
 }
 
-/* ======================== */
-/* 📚 Pre-Existing Prompts  */
-/* ======================== */
+/* ============================================= */
+/* 📚 PRE-EXISTING PROMPT TEMPLATES 📚 */
+/* ============================================= */
 .pre-existing-list {
   display: flex;
   flex-direction: column;
@@ -231,9 +231,9 @@ h2 {
   background-color: #e2d6ff;
 }
 
-/* ========================== */
-/* 🙋‍♂️ Approved Faces for Prompt */
-/* ========================== */
+/* ============================================= */
+/* � FACE THUMBNAILS & SMALL DISPLAYS 👤 */
+/* ============================================= */
 .face-row {
   display: flex;
   gap: 1rem;
@@ -249,9 +249,9 @@ h2 {
   border: 2px solid #ccc;
 }
 
-/* ======================= */
-/* 💬 Prompt and Sentence  */
-/* ======================= */
+/* ============================================= */
+/* 💬 PROMPT DISPLAY & GENERATED CONTENT 💬 */
+/* ============================================= */
 .prompt-box {
   margin-bottom: 1rem;
   padding: 1rem;
@@ -273,9 +273,9 @@ h2 {
   background: #fff;
 }
 
-/* ================ */
-/* 🟣 Drop Circles   */
-/* ================ */
+/* ============================================= */
+/* 🎯 DRAG & DROP CIRCLES 🎯 */
+/* ============================================= */
 .blank-circle {
   display: inline-block;
   width: 60px;
@@ -296,9 +296,9 @@ h2 {
   border-radius: 50%;
 }
 
-/* ================ */
-/* ✏️ Edit Button   */
-/* ================ */
+/* ============================================= */
+/* ✏️ EDIT & UTILITY BUTTONS ✏️ */
+/* ============================================= */
 .edit-btn {
   padding: 0.7rem 1.5rem;
   background-color: #dcb4ff;
@@ -320,9 +320,9 @@ h2 {
   margin-bottom: 1rem;
 }
 
-/* ============================= */
-/* 🧾 Review Scene Preview Styles */
-/* ============================= */
+/* ============================================= */
+/* 🖼️ GENERATED IMAGE RESULTS & REVIEW 🖼️ */
+/* ============================================= */
 .generated-image-container {
   text-align: center;
   margin-top: 1.5rem;
@@ -376,6 +376,9 @@ h2 {
 
 
 
+/* ============================================= */
+/* 🎉 FINAL RESULTS & DISPLAY 🎉 */
+/* ============================================= */
 .generated-result {
   margin-top: 40px;
   text-align: center;
@@ -433,6 +436,9 @@ h2 {
 }
 
 
+/* ============================================= */
+/* 📝 FINAL PROMPT EDITING 📝 */
+/* ============================================= */
 .final-prompt-edit {
   margin-top: 20px;
   text-align: left;
@@ -452,6 +458,9 @@ h2 {
 
 
 
+/* ============================================= */
+/* ❓ Q&A TESTING SECTION ❓ */
+/* ============================================= */
 .qa-test {
   margin-top: 40px;
   padding: 20px;
@@ -486,3 +495,61 @@ h2 {
   margin-top: 20px;
   font-size: 16px;
 }
+
+.qa-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.qa-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.qa-block {
+  background-color: #f7f9ff;
+  border: 1px solid #cbd5e0;
+  padding: 16px;
+  border-radius: 10px;
+  min-height: 160px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.qa-block h4 {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.qa-block p {
+  font-size: 14px;
+  color: #333;
+  margin-top: 10px;
+}
+
+.qa-small-btn {
+  background-color: #5c6bc0;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 12px;
+  font-size: 13px;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+.qa-small-btn:hover {
+  background-color: #3f51b5;
+}
+
+
+
+
