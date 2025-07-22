@@ -675,3 +675,20 @@ h2 {
   border-radius: 4px;
   padding: 2px 4px;
 }
+
+
+
+
+
+
+
+.story-matches {
+  margin-top: 2rem;
+}
+
+.story-text {
+  margin-bottom: 1rem;
+  background: #f9f9f9;
+  padding: 0.75rem;
+  border-left: 4px solid #ccc;
+}

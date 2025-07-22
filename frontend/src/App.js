@@ -558,6 +558,35 @@ function App() {
       </section>
 
 
+  <section className="story-matches card-box">
+    <h2 className="section-heading">Matched Stories from Dataset</h2>
+
+    <div className="label-block">
+      <strong>Label:</strong> {similarStoriesData[currentIndex].Label}
+    </div>
+
+    <div className="parent-description">
+      <strong>Parent Text:</strong> {similarStoriesData[currentIndex].text}
+    </div>
+
+    {[1, 2, 3].map((rank) => (
+      <div key={rank} className="matched-story">
+        <p>
+          <strong>Story {rank} (Similarity {similarStoriesData[currentIndex][`similarity_score_${rank}`]}):</strong>
+        </p>
+        <div className="story-text">
+          {similarStoriesData[currentIndex][`similar_story_${rank}`]
+            .split('\n')
+            .map((line, i) => (
+              <div key={i} style={{ paddingLeft: '2rem', textIndent: '1rem' }}>
+                {line}
+              </div>
+            ))}
+        </div>
+      </div>
+    ))}
+  </section>
+
 
     </div>
   );

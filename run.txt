@@ -10,3 +10,4 @@ mv frontend frontend_old
 npx create-react-app frontend
 cp frontend_old/src/App.js frontend/src/App.js
 cp frontend_old/src/App.css frontend/src/App.css
+npm start
