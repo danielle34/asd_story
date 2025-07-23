@@ -1,0 +1,1001 @@
+dataset_index,title,cluster_id,title_length
+0,How to Wash Your Hands the Right Way,3,36
+1,Brushing My Teeth Before Bed,12,28
+2,Tying My Shoelaces by Myself,10,28
+3,Combing and Styling My Hair,12,27
+4,Taking a Bath Safely,12,20
+5,Folding Laundry with a Grown-Up,3,31
+6,Wiping the Table After Meals,3,28
+7,Cleaning Up My Toys,3,19
+8,Watering House Plants,12,21
+9,Feeding My Pet the Right Amount,9,31
+10,Sorting Garbage for Recycling,8,29
+11,Using a Napkin While Eating,12,27
+12,Setting the Table for Dinner,9,28
+13,Making My Bed Each Morning,4,26
+14,Wiping My Mouth After Eating,12,28
+15,Dressing Properly for Cold Weather,12,34
+16,Checking the Weather Before Going Out,4,37
+17,Keeping My Books in Order,8,25
+18,Using Scissors Safely,10,21
+19,Washing My Face in the Morning,12,30
+20,Putting On My Socks the Easy Way,10,32
+21,Taking a Shower Without Splashing Everywhere,12,44
+22,Trimming My Fingernails,12,23
+23,How to Tie a Ponytail,10,21
+24,Buttoning and Zipping Clothes,10,29
+25,Loading the Dishwasher with Help,3,32
+26,Sweeping the Floor Carefully,3,28
+27,Packing My School Bag Neatly,8,28
+28,Wrapping a Gift for Someone,10,27
+29,Placing My Toys Back on the Shelf,10,33
+30,Taking Care of a Small Scratch,10,30
+31,Hanging Up My Jacket,4,20
+32,Flossing My Teeth Gently,12,24
+33,Washing Fruit Before Eating It,12,30
+34,Using a Tissue to Blow My Nose,12,30
+35,Sharing Toys with My Siblings,10,29
+36,Pouring a Drink Without Spilling,9,32
+37,Putting On and Taking Off a Face Mask,12,37
+38,Cleaning Hair from the Bathroom Floor,3,37
+39,Sorting My Clothes by Color,8,27
+40,Storing Leftover Food in the Fridge,9,35
+41,Wiping the Kitchen Counter After Cooking,3,40
+42,Polishing My Shoes,3,18
+43,Brushing My Pet’s Fur,12,21
+44,Locking Doors Before Leaving Home,4,33
+45,Folding a T-Shirt Nicely,10,24
+46,Using a Step Stool Safely,4,25
+47,Washing Dishes by Hand,3,22
+48,Checking If My Shoes Are on the Correct Feet,4,44
+49,Drying My Hands with a Towel,3,28
+50,Washing Fruit Properly to Remove Germs,3,38
+51,Charging My Gadget Safely,10,25
+52,Tucking in My Shirt,4,19
+53,Organizing Clean Clothes in the Closet,3,38
+54,Writing a Short Thank-You Note,5,30
+55,Drawing a Simple Daily Schedule,8,31
+56,Carrying Small Items Carefully,10,30
+57,Putting Toys into Boxes or Bins,10,31
+58,Drawing a Bath at the Right Temperature,12,39
+59,Keeping My Bedroom Tidy Every Day,3,33
+60,Folding a Paper Airplane,10,24
+61,Keeping My Toothbrush Clean,12,27
+62,Preparing My School Supplies for Class,8,38
+63,Sweeping Leaves Off the Porch,3,29
+64,Cleaning Windows with a Cloth,3,29
+65,Watering a Small Garden or Flower Pot,9,37
+66,Picking Up Litter in the Yard,4,29
+67,Making a Simple Snack by Myself,9,31
+68,Arranging My Books by Size,8,26
+69,Pouring My Own Cereal for Breakfast,9,35
+70,Plugging and Unplugging Electronics Carefully,10,45
+71,Storing Art Supplies in a Box,8,29
+72,Filling Ice Cube Trays,9,22
+73,Wiping My Shoes on a Doormat,3,28
+74,Using a Disinfectant Wipe Correctly,3,35
+75,Cutting Herbs with Kid-Safe Scissors,10,36
+76,Tying a Simple Knot for Crafts,10,30
+77,Using a Broom and Dustpan,3,25
+78,Closing and Locking Windows,10,27
+79,Rolling Up My Sleeves for Washing,3,33
+80,Checking the Milk’s Expiration Date,12,35
+81,Rolling Dough for Simple Cookies,10,32
+82,Cleaning Up Spills to Avoid Slips,3,33
+83,Labeling My School Supplies,8,27
+84,Marking My Name on My Backpack,8,30
+85,Turning On a Flashlight Safely,4,30
+86,Cleaning the Bathroom Sink,3,26
+87,Keeping Hair Out of My Face While Eating,12,40
+88,Turning Off the Faucet Tightly,12,30
+89,Changing the Toilet Paper Roll,10,30
+90,Holding a Pencil the Right Way,10,30
+91,Cutting Paper in a Straight Line,10,32
+92,Washing Vegetables for a Salad,3,30
+93,Sealing Leftovers in a Container,9,32
+94,Handling Small Tools with Grown-Up Supervision,10,46
+95,Folding a Towel Neatly,3,22
+96,Listening for the Timer When Cooking,9,36
+97,Using a Stapler Carefully,10,25
+98,Looking for Things That Might Make Me Trip,6,42
+99,Rinsing the Sink After Brushing My Teeth,12,40
+100,Keeping My Glasses Clean,3,24
+101,Eating with a Fork and Spoon the Right Way,9,42
+102,Mopping Up a Minor Water Spill,3,30
+103,Tasting Food Before Adding Extra Salt,9,37
+104,Using a Safety Pin with an Adult’s Help,10,39
+105,Double-Checking My Shoelaces Before Leaving,4,43
+106,Hanging Up Wet Towels,3,21
+107,Putting Dirty Laundry in a Hamper,3,33
+108,Feeding a Goldfish the Correct Amount,9,37
+109,Turning Off Lights to Save Energy,4,33
+110,Dabbing Stains on My Clothes,3,28
+111,Using a Bib for a Younger Sibling,10,33
+112,Opening and Closing Car Doors Safely,10,36
+113,Buckling My Seat Belt,4,21
+114,Using a Reusable Water Bottle,10,29
+115,Gently Wiping a Computer Screen,3,31
+116,Bringing My Own Utensils for Lunch,9,34
+117,Unpacking and Sorting Groceries,8,31
+118,Making a Bedtime Checklist,8,26
+119,Checking the Mailbox for Letters,4,32
+120,Washing My Toys Once in a While,3,31
+121,Cleaning the Table After Arts and Crafts,3,40
+122,Keeping My Desk Ready for Homework,8,34
+123,Covering My Mouth When I Sneeze,12,31
+124,Sealing a Plastic Bag by Myself,10,31
+125,What Is a Chair and Why Do We Use It?,0,37
+126,Why Do We Sleep in a Bed?,7,25
+127,Exploring What Windows Do,0,25
+128,Understanding What Doors Are For,0,32
+129,What Is a Table and How Do We Use It?,0,37
+130,Why Do We Wear Shoes?,7,21
+131,What Is a Backpack?,0,19
+132,Why Do People Use Umbrellas?,7,28
+133,What Is a Couch?,0,16
+134,The Purpose of a Pillow,7,23
+135,What Is a Bicycle?,0,18
+136,Why Do We Have Gardens?,7,23
+137,What Is a Light Bulb?,0,21
+138,Discovering the Idea of a Stove,9,31
+139,Why Do We Need a Refrigerator?,7,30
+140,What Is a Television?,0,21
+141,How a Remote Control Helps Us,5,29
+142,Why Houses Have Walls,7,21
+143,What Are Stairs For?,0,20
+144,The Difference Between a Spoon and Fork,9,39
+145,Understanding What a Towel Is,3,29
+146,Why Do We Use Soap?,7,19
+147,What Is a Bathtub?,0,18
+148,The Purpose of a Mirror,7,23
+149,What Is a Closet?,0,17
+150,Why Do We Hang Curtains?,7,24
+151,What Is a Carpet?,0,17
+152,Why Doors Need Locks,7,20
+153,What Is a Window Screen?,0,24
+154,What Is a Trash Can For?,0,24
+155,Why We Need a Water Bottle,7,26
+156,Understanding the Idea of Keys,0,30
+157,What Is a Fence?,0,16
+158,Why Do Some Clothes Have Zippers?,7,33
+159,What Is a Belt?,0,15
+160,Exploring Why Raincoats Are Useful,7,34
+161,Why We Use Toothpaste,12,21
+162,What Is a School Desk For?,0,26
+163,Why We Read Books,7,17
+164,What Is a Lunchbox?,0,19
+165,Understanding What Crayons Are,0,30
+166,Why We Sharpen Pencils,7,22
+167,What Is an Eraser?,0,18
+168,What Is Glue and When Do We Use It?,7,35
+169,Discovering the Purpose of a Scarf,10,34
+170,Why Chairs Sometimes Have Cushions,7,34
+171,What Is an Alarm Clock?,0,23
+172,Understanding a Mobile Phone,0,28
+173,What Is a Computer Mouse?,0,25
+174,Why a Keyboard Helps Us Type,7,28
+175,What Are Headphones Used For?,0,29
+176,Why We Need a Charger,7,21
+177,What Is a Camera?,0,17
+178,Why Do We Use a Calendar?,7,25
+179,Understanding Dates and Why They Matter,11,39
+180,What Is a Drawer For?,0,21
+181,Why We Put Letters in Envelopes,7,31
+182,What Is a Stamp?,0,16
+183,Why We Have Libraries,7,21
+184,How Books Are Arranged on Shelves,8,33
+185,What Is a Bookmark?,0,19
+186,Why We Need Pens,7,16
+187,Why Paper Comes in Different Sizes,7,34
+188,Understanding the Ceiling Above Us,11,34
+189,What Is a Floor?,0,16
+190,Why Do We Wear Socks?,7,21
+191,The Role of a Coat,7,18
+192,What Are Gloves For?,7,20
+193,What Is a Basket and Why Use It?,0,32
+194,Why We Have Mops,7,16
+195,Exploring What Candles Do,10,25
+196,What Is a Vacuum Cleaner?,0,25
+197,Why We Use Washing Machines,3,27
+198,What Is a Clothes Dryer?,3,24
+199,Understanding a Kitchen Counter,0,31
+200,Why Do People Follow Recipes?,9,29
+201,What Is a Sink and How It Helps,0,31
+202,Why Some Kids Ride a School Bus,7,31
+203,What Are Street Signs For?,0,26
+204,Why Schools Have Playgrounds,7,28
+205,What Is a Park?,0,15
+206,Why Sidewalks Keep Us Safe,7,26
+207,Understanding a Stoplight,0,25
+208,What Is a Hospital?,0,19
+209,Why Do People Go to Clinics?,7,28
+210,What Is a Post Office?,0,22
+211,Why Do We Use Money?,7,20
+212,What Is a Piggy Bank?,0,21
+213,Exploring the Idea of a Store,0,29
+214,Why Some Stores Are Called Supermarkets,0,39
+215,What Is a Receipt?,0,18
+216,Why Coins and Bills Are Different,7,33
+217,What Is a Credit Card?,0,22
+218,Why Do We Have Banks?,7,21
+219,What Are Savings For?,0,21
+220,What Is a Pet and Why We Have Them,0,34
+221,Understanding the Idea of a Dog,0,31
+222,What Is a Cat?,0,14
+223,Why People Keep Fish in Tanks,7,29
+224,What Is a Birdcage?,0,19
+225,Who Is a Veterinarian?,0,22
+226,Why Schools Have Lunch Breaks,7,29
+227,What Is Recess at School?,2,25
+228,Exploring What a Classroom Is,2,29
+229,Why We Have Homework,7,20
+230,What Are School Uniforms?,7,25
+231,Who Is the Principal?,2,21
+232,Why Teachers Help Us Learn,7,26
+233,What Is a Chalkboard?,0,21
+234,What Is a Dictionary Used For?,0,30
+235,Why Schools Have a Bell,7,23
+236,What Is a Playground Slide?,0,27
+237,Understanding the Gym at School,14,31
+238,What Is a Cafeteria?,0,20
+239,Why Do Some Kids Have Lockers?,7,30
+240,What Is a Hallway?,0,18
+241,Why We Play Games at Recess,7,27
+242,What Is a Friend?,0,17
+243,Why Our Families Are Important,7,30
+244,Understanding Respect,11,21
+245,What Does Sharing Mean?,11,23
+246,Why We Celebrate Birthdays,7,26
+247,What Is the Idea of a Holiday?,0,30
+248,Why Do We Have Seasons?,7,23
+249,Understanding What a Weekend Is,6,31
+250,Attending My First Virtual Class,2,32
+251,Learning to Face Math Test Anxiety,1,34
+252,Making a New Friend from Another Country Online,13,47
+253,Exploring a Digital Art Museum Tour,6,35
+254,Helping Serve Meals at a Community Kitchen,9,42
+255,Adopting a Stray Animal,6,23
+256,Touring a Solar Power Farm,6,26
+257,Experiencing an Online Music Concert,13,36
+258,Visiting a Tech Expo with My Parents,2,36
+259,Reporting a Cyberbully to a Teacher,13,35
+260,Staying Calm During a Severe Weather Warning,1,44
+261,Trying a Student Exchange Program,2,33
+262,Attending a Coding Club for Beginners,14,37
+263,Going to a School Debate,2,24
+264,Witnessing a Friend Experience Homesickness,5,43
+265,Exploring a Space Camp for Kids,6,31
+266,Understanding Online Fundraising,13,32
+267,Joining a Community Litter Patrol,6,33
+268,Creating an Eco-Friendly Garden at School,2,41
+269,Participating in a Virtual Book Club,2,36
+270,First Time Doing Home Quarantine,4,32
+271,Visiting a Police Station for Safety Lessons,14,44
+272,Experiencing the Day Without Gadgets,4,36
+273,Attending a Homeschool Group Event,2,34
+274,Checking Out an E-Sports Tournament,14,35
+275,Going to a Language Exchange Café,2,33
+276,Meeting a Friend with a Different Religion,5,42
+277,Bringing Supplies to a Flooded Region,6,37
+278,Helping My Neighbor with Tech Problems,10,38
+279,Visiting a Food Bank Donation Drive,9,35
+280,Hosting an Online Talent Show,13,29
+281,Learning About Local Government on a Field Trip,6,47
+282,Understanding a Family Member’s Disability,5,42
+283,Meeting a Sign Language Interpreter,2,35
+284,Exploring a Virtual Museum Overseas,6,35
+285,Learning to Cook a Dish from Another Country,9,44
+286,Having a Sleepover in a Different Culture,2,41
+287,Experiencing a Virtual Reality Game Competition,14,47
+288,First Time at a Farmers’ Market Abroad,6,38
+289,Visiting an Elderly Pen Pal at a Nursing Home,5,45
+290,Attending a Friendsgiving Celebration,2,37
+291,Creating a School Recycling Drive,8,33
+292,Trying a Walkathon for a Global Cause,4,37
+293,Hosting a Video Call with Distant Relatives,13,43
+294,Exploring Environmental Problems in My Town,6,43
+295,Visiting a Monument That Honors History,6,39
+296,Staying Resilient During a City Lockdown,4,40
+297,Working with an Online Study Buddy,13,34
+298,Joining an International Kids’ Conference,2,41
+299,Facing My Fear of Shots at the Clinic,4,37
+300,Meeting People from Different Cultures at Camp,6,46
+301,Donating Clothes for Winter Relief,10,34
+302,Finding Courage to Speak at a School Assembly,2,45
+303,Observing a Special Holiday in Another Country,6,46
+304,Dealing with Homesickness at Boarding School,2,44
+305,Attending a Health Checkup Alone,4,32
+306,Joining a Local Youth Council,2,29
+307,Finding a Safe Space Online,13,27
+308,Learning to Bake and Sell Goods for Charity,9,43
+309,Observing a Protest Peacefully,4,30
+310,Participating in a Global Reading Challenge,8,43
+311,Exploring an Online Language App,13,32
+312,Attending a Neighborhood Disaster Drill,6,39
+313,Using Public Wi-Fi Safely,13,25
+314,Raising Funds for an Orphanage,5,30
+315,Visiting a Virtual Career Fair,6,30
+316,Spending a Weekend Helping an Elderly Neighbor,5,46
+317,Teaching My Grandparents to Use Smartphones,10,43
+318,Coping with Rainy Day Blues Indoors,4,35
+319,Visiting a Different Ethnic Neighborhood,6,40
+320,Volunteering as a Playground Buddy,14,34
+321,Meeting a Buddy from a Refugee Family,5,37
+322,Going on a History Tour in My Town,6,34
+323,Cheering Up a Friend Who Lost a Pet,5,35
+324,Practicing for a Local Talent Competition,14,41
+325,Handling Lost Luggage While Traveling,10,37
+326,Organizing a Yard Sale for Community Aid,5,40
+327,Spending a Holiday with a Host Family Abroad,6,44
+328,Walking Home Alone for the First Time,4,37
+329,Learning to Use the Subway in a Big City,14,40
+330,Exploring a Virtual Safari,6,26
+331,Understanding School Lockdown Drills,14,36
+332,Hosting a Digital Gaming Night with Friends,13,43
+333,Helping a Relative in the Hospital,5,34
+334,How to Safely Download Apps,13,27
+335,Spotting Fake News Online,13,25
+336,Securing My Social Media Accounts,13,33
+337,Creating a Strong Password,10,26
+338,Basics of Cyber Etiquette,13,25
+339,Building Healthy Screen Time Habits,4,35
+340,Comparing News Sources for Truth,13,32
+341,Planning a Basic Emergency Kit,10,30
+342,Practicing Earthquake Safety at Home,14,36
+343,How to Evacuate During a Fire,4,29
+344,Asking for Help from a Stranger Safely,5,38
+345,Resolving Problems in a Group Chat,1,34
+346,Keeping My Personal Data Private,13,32
+347,Deciding Which Websites to Trust,13,32
+348,Approaching an Adult When I Feel Unsafe,4,39
+349,Simple Steps to Write a Creative Story,2,38
+350,Building a Basic Robot Project,10,30
+351,Debugging a Simple Computer Code,10,32
+352,How to Brainstorm New Ideas,8,27
+353,Planning a School Club Meeting,2,30
+354,Polite Ways to Decline an Invitation,1,36
+355,How to Conserve Energy at Home,4,30
+356,Staying Calm If I Lose Internet Connection,1,42
+357,Making a Mind Map for Critical Thinking,11,39
+358,Cooking a Healthy Snack Independently,9,37
+359,How to Safely Seek Help in Public,5,33
+360,Handling Conflict Over Text Messages,1,36
+361,Ways to Organize Information for a Project,8,42
+362,Offering Constructive Feedback,1,30
+363,How to Manage My Time Online,13,28
+364,Speaking Confidently on Video Calls,1,35
+365,Running a Simple Experiment at Home,10,35
+366,Keeping a Positive Attitude When Gaming,1,39
+367,Solving Simple Tech Issues on My Own,10,36
+368,Evaluating a Website’s Credibility,13,34
+369,Giving a Mini Presentation at School,2,36
+370,Handling Anxiety During a Test,1,30
+371,Designing a Fun Science Model,2,29
+372,How to Approach a School Counselor,2,34
+373,Explaining My Side in an Argument Calmly,1,40
+374,Creating a Family Evacuation Plan,4,33
+375,Getting Adults’ Help When I’m Bullied Online,13,44
+376,Finding Safe Apps for Learning,14,30
+377,Protecting My Eyes from Too Much Screen Time,4,44
+378,Ways to Practice Empathy Online,13,31
+379,Using Online Forums Respectfully,13,32
+380,Building a Simple DIY Invention,10,31
+381,How to Fact-Check a Video,13,25
+382,Finding Reliable Health Information,13,35
+383,Managing My Emotions During a Crisis,1,36
+384,Refusing Peer Pressure with Confidence,1,38
+385,Sharing Digital Devices Fairly,13,30
+386,Reacting Properly to a Stranger’s Request Online,13,48
+387,Writing a Persuasive Mini-Essay,2,31
+388,Telling Real Emergencies from Minor Problems,1,44
+389,Supporting a Friend with Anxiety,5,32
+390,Picking Out Credible Books for a Report,8,39
+391,Making a Backup of Important Files,8,34
+392,Speaking Assertively but Kindly,1,31
+393,Solving Minor Tech Glitches at School,10,37
+394,Staying Organized in a Group Project,8,36
+395,Brainstorming Eco-Friendly Solutions,8,36
+396,Learning Basic Sign Language Online,14,35
+397,Reading Digital Articles with Caution,13,37
+398,Preparing a Home Fire Escape Drill,10,34
+399,Creating a Scrapbook of My Creative Ideas,8,41
+400,Finding Ways to Stay Calm in a Crowd,1,36
+401,Developing My Own Study Checklist,8,33
+402,Improving My Online Writing Skills,13,34
+403,Handling Fear During a Thunderstorm,1,35
+404,Packing an Emergency Go-Bag,10,27
+405,Asking for Clarification When Unsure,1,36
+406,Encouraging Team Members to Share Ideas,5,39
+407,Setting Realistic Goals for a Project,11,37
+408,Debugging Simple Coding Errors,10,30
+409,Identifying Safe Online Communities,13,35
+410,Learning Basic First Aid for Small Injuries,14,43
+411,Handling a Bike Accident Safely,10,31
+412,Exploring the Basics of 3D Printing,10,35
+413,Making a Poster to Raise Awareness,2,34
+414,Choosing Proper Sources for My Homework,8,39
+415,Coping with Cyberbullying as a Friend,13,37
+416,How to De-escalate an Argument at School,1,40
+417,What Is Fairness and Why Does It Matter?,11,40
+418,Why Some People Need Extra Help,5,31
+419,What Is Online Kindness?,13,24
+420,Why Cultural Festivals Are Important,2,36
+421,Understanding Digital Responsibility,13,36
+422,What Is Social Justice?,11,23
+423,Why We Should Help Stray Animals,5,32
+424,Learning to Accept Different Family Structures,11,46
+425,What Does It Mean to Include Everyone?,11,38
+426,Why People Protest Peacefully,7,29
+427,What Is Gender Equality?,11,24
+428,Understanding Poverty Around Us,5,31
+429,What Is Religious Tolerance?,11,28
+430,Why Every Culture Is Unique,11,27
+431,Exploring Online Friendships,13,28
+432,What Is a Global Citizen?,11,25
+433,Why Some People Face More Challenges,11,36
+434,What Does It Mean to Value All Abilities?,11,41
+435,Understanding the Idea of Carbon Footprint,11,42
+436,What Is Digital Footprint?,0,26
+437,Why Do We Need Fact-Checking?,7,29
+438,Learning the Meaning of Philanthropy,5,36
+439,What Is Sustainable Living?,11,27
+440,Why Words Can Hurt Others,1,25
+441,Understanding the Concept of Ethical Choices,11,44
+442,What Is Social Equality?,11,24
+443,Why We Should Avoid Gossiping,1,29
+444,The Power of Apologizing Sincerely,1,34
+445,How Cyberbullying Affects People,13,32
+446,What Is Climate Change Responsibility?,11,38
+447,Why Some Kids Have to Work Harder,7,33
+448,Understanding Different Types of Families,11,41
+449,What Is a Role Model Online?,13,28
+450,Why Gratitude Helps Us Grow,5,27
+451,What Does Compassion Look Like in Real Life?,5,44
+452,Understanding People from Many Backgrounds,11,42
+453,What Is Online Reputation?,13,26
+454,Why Helping Others Feels Good,5,29
+455,What Is Emotional Boundaries?,11,29
+456,"Respecting Private Spaces, Even Online",13,38
+457,What Does Global Awareness Mean?,11,32
+458,Why Personal Values Guide Our Actions,11,37
+459,Understanding the Concept of Non-Violence,11,41
+460,What Is Freedom of Expression?,11,30
+461,Why Appearances Can Be Misleading,11,33
+462,Exploring the Meaning of Tolerance,11,34
+463,What Is an Open-Minded Attitude?,11,32
+464,Why Differences Make Our World Richer,11,37
+465,How Digital Spaces Connect Us,13,29
+466,What Is Cooperation Across Borders?,11,35
+467,Recognizing Privilege and Responsibility,11,40
+468,Why Listening to Others’ Stories Matters,11,40
+469,What Does It Mean to Judge Fairly?,11,34
+470,Understanding That Everyone Learns Differently,11,46
+471,What Is the Power of Democracy?,11,31
+472,Why Digital Compassion Is Important,13,35
+473,Defining Empathy in a Global Context,5,36
+474,What Is Inclusion for Special Needs?,5,36
+475,How Generosity Shapes Communities,5,33
+476,Why Some People Face Discrimination,11,35
+477,What Is Body Positivity and Self-Acceptance?,11,44
+478,Respecting Our Parents’ Choices,11,31
+479,Understanding That Mistakes Help Us Grow,11,40
+480,Why Laughter Helps Bring People Together,5,40
+481,What Is Hope During Difficult Times?,5,36
+482,Learning to See the Good in Everyone,11,36
+483,Why Manners Still Matter Online,13,31
+484,Exploring Our Differences Without Judgment,11,42
+485,What Is Freedom from Bullying?,11,30
+486,Why Telling the Truth Builds Trust,11,34
+487,How Online Movements Inspire Change,13,35
+488,What Is Peaceful Conflict Resolution?,11,37
+489,Respecting Different Languages at School,2,40
+490,Why Some Customs Seem Strange to Us,7,35
+491,What Is the Purpose of a Refuge?,7,32
+492,Understanding Overcoming Prejudice,11,34
+493,What Makes a Community Strong?,11,30
+494,Why Apologizing Shows Courage,1,29
+495,Defining Friendship in the Digital Age,13,38
+496,What Is Self-Respect in a Busy World?,11,37
+497,Appreciating Our Cultural Roots,11,31
+498,Why Leading by Example Is Powerful,11,34
+499,How We Can All Support Equality,11,31
+500,Helping at a Wildlife Rescue Center,6,35
+501,Attending a Middle School Orientation,2,37
+502,Celebrating a Neighborhood Block Party,2,38
+503,Camping with Friends Under the Stars,6,36
+504,Exploring an Old Lighthouse,6,27
+505,Riding in a Hot Air Balloon,14,27
+506,Volunteering at a Children’s Hospital,5,37
+507,Day Trip to a Folk Museum,6,25
+508,Experiencing a Planetarium Laser Show,6,37
+509,Picnicking in a Summer Meadow,6,29
+510,Trying Street Food at a Night Market,9,36
+511,Visiting a Dinosaur Fossil Site,6,31
+512,Attending a Beach Cleanup Day,6,29
+513,Observing Birds at a Local Wetland,6,34
+514,Exploring a Historic Mansion,6,28
+515,Going to a Video Game Convention,2,32
+516,Taking a Ride on a Historic Train,6,33
+517,Visiting a Factory to See How Things Are Made,6,45
+518,Discovering a Cave with Glow Worms,6,34
+519,Cheering at a Cheerleading Competition,14,38
+520,Participating in a School Art Exhibit,2,37
+521,Attending a Magic Show,2,22
+522,Spending a Day in a Big City Zoo,6,32
+523,Decorating My Room with Family,2,30
+524,Visiting My Uncle’s Barn,6,24
+525,Trying a Beginner Fencing Class,14,31
+526,Attending a College Football Game,14,33
+527,Observing a Local Debate Event,2,30
+528,Exploring a Butterfly Festival,6,30
+529,Attending a Music Workshop at the Library,2,41
+530,Visiting a Glass-Blowing Studio,6,31
+531,Learning to Dance at a Workshop,14,31
+532,Staying in a Historic Hotel,6,27
+533,Vacationing at a Lakeside Cabin,6,31
+534,Traveling on a Ferry Boat,6,25
+535,Attending a Tae Kwon Do Tournament,14,34
+536,Joining a Coding Camp,14,21
+537,Visiting a City Aquarium at Night,6,33
+538,Helping Organize a Book Fair,8,28
+539,Going on a Bicycle Tour in the Countryside,6,42
+540,Visiting a Fruit Festival,6,25
+541,Watching Birds Migrate in Autumn,6,32
+542,Attending a Medieval Faire,2,26
+543,A Day at the Local Observatory,6,30
+544,Playing Laser Tag with Friends,14,30
+545,Trying Out an Escape Room,4,25
+546,Attending a Fashion Show for Kids,2,33
+547,Exploring a Redwood Forest,6,26
+548,Camping at the Beach in Tents,6,29
+549,Spending Time in a Hot Springs Resort,6,37
+550,Visiting a Sculpture Garden,6,27
+551,Riding a Historic Trolley in the City,6,37
+552,Helping Bake Goods for a Charity Sale,9,37
+553,Taking a Tour of a Greenhouse,6,29
+554,Visiting a Bee Farm to Learn About Honey,6,40
+555,Participating in a Science Experiment Fair,2,42
+556,Visiting a Film Studio Backlot,6,30
+557,Practicing Archery at Summer Camp,14,33
+558,Helping Clean Up the School Yard,3,32
+559,Going on a Mining Tour,6,22
+560,Attending a School Geography Bee,2,32
+561,Watching a Fireworks Display on a Holiday,6,41
+562,Playing Mini-Golf with My Family,14,32
+563,Exploring an Antique Car Show,6,29
+564,Trying a Salsa Dance Lesson,14,27
+565,Visiting a Seashell Museum,6,26
+566,Joining a Community Theater Group,2,33
+567,Taking a Ride in a Sailboat,6,27
+568,Going to an Outdoor Ice Rink,14,28
+569,Visiting a Historic Apothecary Shop,6,35
+570,Attending a Seasonal Lantern Festival,6,37
+571,A Day at a Star Wars Convention,2,31
+572,Observing a Marathon Race,14,25
+573,Trying Indoor Skydiving,14,23
+574,Visiting a Local Farmers’ Co-op,6,31
+575,Attending a Sketching Meetup at the Park,2,40
+576,Exploring a Desert Museum,6,25
+577,Sampling International Foods at a Cultural Fair,9,47
+578,Visiting a Science Museum’s Outer Space Exhibit,6,47
+579,Cheering on Friends at a Rock-Climbing Competition,14,50
+580,Collecting Rocks and Gems at a Special Show,6,43
+581,Going on a Snowshoeing Adventure,6,32
+582,Observing Butterflies Hatching in a Greenhouse,6,46
+583,Building Birdhouses for a Nature Reserve,6,40
+584,Writing a Personal Budget Plan,8,30
+585,Developing Simple Conflict-Resolution Steps,1,43
+586,How to Sort Recyclables Correctly,8,33
+587,Speaking Confidently in Class Presentations,1,43
+588,Practicing Eye Contact in Conversations,1,39
+589,Finding Positive Ways to Release Stress,1,39
+590,How to Plan a Weekly Menu,8,25
+591,Encouraging Others with Kind Words,5,34
+592,Organizing a Small Group Study Session,2,38
+593,Learning to Iron Clothes Safely,10,31
+594,Checking In on Friends’ Feelings,5,32
+595,How to Handle Misunderstandings Calmly,1,38
+596,Practicing Proper Posture Every Day,14,35
+597,Learning to Count Change Accurately,8,35
+598,Writing a Friendly Letter to a Grandparent,5,42
+599,How to Lead a Group Project,2,27
+600,Respecting Different Opinions Online,13,36
+601,Preparing a Simple Soup at Home,9,31
+602,Using Fewer Distractions While Studying,8,39
+603,Setting an Alarm and Waking Up on Time,4,38
+604,Making and Keeping a Simple To-Do List,8,38
+605,Kindly Reminding Friends of Rules,1,33
+606,Practicing Gratitude Through Journaling,5,39
+607,How to Politely Join a Conversation,1,35
+608,Developing Good Sportsmanship as a Team Captain,14,47
+609,Caring for a Younger Sibling Safely,5,35
+610,How to Use a City Map for Directions,6,36
+611,Balancing Screen Time and Outdoor Play,14,38
+612,Practicing Positive Self-Talk,1,29
+613,How to Politely End a Phone Call,1,32
+614,Building an Emergency Contact List,10,34
+615,Learning to Sew a Button,10,24
+616,Sharing Space in a Classroom Effectively,2,40
+617,Creating a Homework Schedule,8,28
+618,How to RSVP to an Invitation,2,28
+619,Gently Handling Fragile Items,10,29
+620,Using Polite Text Messaging,1,27
+621,Building Emotional Self-Awareness,11,33
+622,Efficiently Sorting Toys and Books,8,34
+623,Staying Alert in Crowded Places,4,31
+624,How to Set Realistic Personal Goals,11,35
+625,Managing Disappointment Productively,1,36
+626,Standing Up for My Beliefs Respectfully,4,39
+627,Practicing Mindful Listening at Home,1,36
+628,Keeping a Positive Attitude During Chores,1,41
+629,Recognizing and Avoiding Peer Conflicts,11,39
+630,Asking Permission to Give Hugs,5,30
+631,How to Debate Ideas Kindly,1,26
+632,Checking Online Sources for Accuracy,13,36
+633,Wrapping Gifts Neatly,10,21
+634,Sticking to a Bedtime Routine,4,29
+635,Serving Food at a Family Meal,9,29
+636,Practicing a New Language with Friends,2,38
+637,Handling Criticism Gracefully,1,29
+638,Pacing Myself During a Sports Activity,14,38
+639,Contributing to Group Chats Respectfully,1,40
+640,Taking a Break to Reset My Mind,4,31
+641,Avoiding Interrupting People,1,28
+642,Learning Not to Judge Too Quickly,11,33
+643,Helping to Plan a Family Vacation,6,33
+644,Suggesting Solutions Instead of Complaints,1,42
+645,Using Neutral Language in Disagreements,1,39
+646,Dealing with Stage Fright,1,25
+647,Staying Patient While Waiting for Appointments,4,46
+648,Preparing a Simple Picnic,9,25
+649,Sharing Household Tasks Fairly,9,30
+650,Talking to a Teacher About My Problems,1,38
+651,Saving Money for Something Special,10,34
+652,Handling Broken Items Safely,10,28
+653,Creating a Personal Calendar to Track Events,8,44
+654,Accepting Help When I Need It,5,29
+655,Packing a Backpack for a Day Trip,8,33
+656,Encouraging a Friend Who’s Struggling,5,37
+657,"Learning to Make Quick, Healthy Snacks",9,38
+658,Being a Friendly Guest at Someone’s House,5,41
+659,How to Tackle Big Projects Step by Step,8,39
+660,Writing an Apology Email,1,24
+661,Finding Positive Alternatives to Shouting,1,41
+662,Using Social Media Thoughtfully,13,31
+663,Keeping My Work Space Organized,8,31
+664,Gently Correcting Someone’s Mistake,1,35
+665,Offering Solutions Instead of Complaints,1,40
+666,Speaking Calmly When I’m Upset,1,30
+667,What Is Courage in Everyday Life?,11,33
+668,Why Do We Appreciate Small Acts of Kindness?,5,44
+669,What Is a Growth Mindset and Why Is It Helpful?,11,47
+670,Exploring the Meaning of Accountability,11,39
+671,What Is Empathy for Animals?,5,28
+672,Understanding Where Our Fears Come From,11,39
+673,All About Positive Self-Image,11,29
+674,What Is Emotional Balance?,11,26
+675,Why Does Taking Initiative Matter?,11,34
+676,How Compassion Strengthens Friendships,5,38
+677,What Is Meant by Social Awareness?,11,34
+678,Exploring the Idea of Respecting Boundaries,11,43
+679,Why Empathy Is Important in Groups,5,34
+680,How Role Models Inspire Us,11,26
+681,What Is Generosity Toward Strangers?,5,36
+682,Understanding the Need for Self-Reflection,11,42
+683,What Is Good Communication?,1,27
+684,Why Celebrating Progress Boosts Confidence,11,42
+685,All About Being Open-Minded,11,27
+686,What Is Self-Motivation?,11,24
+687,Exploring the Value of Consistency,11,34
+688,What Is a Habit and How Do We Change It?,11,40
+689,Understanding the Balance Between Work and Fun,11,46
+690,How Positive Peer Influence Works,11,33
+691,What Is Emotional Health?,5,25
+692,Why Telling the Truth Is Powerful,11,33
+693,Discovering the Meaning of Self-Reliance,11,40
+694,What Is Humility and Why Does It Matter?,11,40
+695,How Gratitude Improves Our Outlook,5,34
+696,What Is a Positive Attitude?,11,28
+697,Exploring the Idea of Self-Expression,11,37
+698,Why Self-Respect Is Necessary,11,29
+699,What Is Generosity of Spirit?,5,29
+700,Understanding How Attitude Affects Relationships,11,48
+701,What Is Determination and How to Build It?,11,42
+702,The Importance of Admitting We Don’t Know Something,11,51
+703,What Is Curiosity in Learning?,11,30
+704,How Self-Control Helps Everyone,11,31
+705,What Is Self-Esteem and How Do We Protect It?,11,45
+706,Why Good Manners Support Friendships,5,36
+707,All About Reciprocity in Friendships,5,36
+708,How Teamwork Gets Things Done Faster,11,36
+709,What Is Accountability to Others?,11,33
+710,Understanding the Power of Encouragement,11,40
+711,Why Boundaries Build Trust,11,26
+712,What Is Sincerity and Why Is It Valuable?,11,41
+713,Recognizing When I Need Help,5,28
+714,All About Healthy Self-Talk,1,27
+715,What Does It Mean to Respect Myself?,11,36
+716,How Tolerance Creates Harmony,11,29
+717,What Is Positivity in Everyday Life?,11,36
+718,Why Self-Honesty Helps Us Improve,11,33
+719,What Is a Personal Value System?,11,32
+720,Understanding How Encouragement Works,5,37
+721,Why Making Amends Heals Friendships,5,35
+722,What Is Empathy in Conflict?,11,28
+723,How Humor Relieves Stress,1,25
+724,What Is the Purpose of an Apology?,1,34
+725,Exploring the Concept of Grace,11,30
+726,What Is Compassion Toward Myself?,5,33
+727,Why It’s Important to Respect Different Ages,11,44
+728,Learning the Importance of Fair Dealing,11,39
+729,What Is the Role of Trust in Friendships?,5,41
+730,How Responsibility Grows with Age,11,33
+731,Why Self-Discipline Creates Freedom,11,35
+732,What Is the Difference Between Politeness and Kindness?,5,55
+733,Exploring the Idea of Empathy in Daily Life,5,43
+734,Why Do We Often Overlook Good Deeds?,11,36
+735,What Is Integrity and How to Keep It?,11,37
+736,All About Being Proud Without Boasting,11,38
+737,Understanding That Everyone Is Unique,11,37
+738,What Is a Moral Compass?,11,24
+739,Why Consistency Builds Reliability,11,34
+740,What Is the Value of Self-Acceptance?,11,37
+741,How a Quiet Mind Can Solve Problems,1,35
+742,What Is Perseverance and When Do We Use It?,11,43
+743,Why Caring for Our World Is Important,11,37
+744,What Is Altruism?,11,17
+745,Exploring the Power of Sincere Apologies,1,40
+746,What Is the Meaning of Empathy in Families?,5,43
+747,Understanding Sensitivity to Others’ Feelings,11,45
+748,Why Should We Celebrate Differences?,11,36
+749,What Is a Role Model and How Do We Choose One?,11,46
+750,Being a Helper in Class,5,23
+751,Washing Hands at School,3,23
+752,Sharing Toys with Friends,10,25
+753,Quiet Voices in the Library,1,27
+754,Taking Turns on the Slide,4,25
+755,Listening During Circle Time,4,28
+756,Lining Up for Lunch,9,19
+757,Brushing Teeth After Meals,12,26
+758,Wearing a Seatbelt,4,18
+759,Playing Gently with Pets,10,24
+760,Asking for Help Nicely,5,22
+761,Using Friendly Words,1,20
+762,Preparing for Bed,4,17
+763,Waiting Patiently for My Turn,4,29
+764,Greeting Friends at School,2,26
+765,Using the Bathroom Safely,4,25
+766,Moving Carefully in the Hallway,4,31
+767,Sitting Criss-Cross on the Rug,4,30
+768,Being Honest,11,12
+769,Trying New Foods at Mealtime,9,28
+770,Taking Care of My Things,4,24
+771,Speaking Politely During Meals,9,30
+772,Bringing in My Homework,8,23
+773,Walking with My Class on Field Trips,14,36
+774,Waiting for My Family at Pickup Time,4,36
+775,Cleaning Up After Play,3,22
+776,Saying Excuse Me,1,16
+777,Taking Part in Group Work,2,25
+778,Following the Class Rules,2,25
+779,Staying Calm During Storms,1,26
+780,Using Kind Hands,10,16
+781,Helping a Friend Who Is Sad,5,27
+782,Paying Attention to the Teacher,2,31
+783,Storing My Art Supplies,8,23
+784,Saying Thank You,5,16
+785,Walking Safely Near Roads,4,25
+786,Making New Friends,5,18
+787,Speaking Up in Class,1,20
+788,Practicing Fire Drills,14,22
+789,Being Responsible with Homework Supplies,8,40
+790,Giving Others Personal Space,13,28
+791,Helping Keep the Classroom Clean,3,32
+792,Using My Indoor Voice,4,21
+793,Following a Schedule,4,20
+794,Asking Before Borrowing,12,23
+795,Staying Safe with Scissors,10,26
+796,Wearing Weather-Ready Clothes,4,29
+797,Joining in Games Outside,14,24
+798,Saying Goodbye at the End of the Day,4,36
+799,Practicing Patience During Group Cleanup,1,40
+800,Using a Quiet Voice in Class,1,28
+801,Washing Hands Before Eating,12,27
+802,Taking Turns on the Slide,4,25
+803,Listening at Story Time,4,23
+804,Sharing Crayons with Friends,10,28
+805,Walking Safely in the Hallway,4,29
+806,Asking for Help Kindly,5,22
+807,Using Kind Hands,10,16
+808,Cleaning Up After Play,3,22
+809,Waiting for My Turn to Speak,4,28
+810,Saying Thank You,5,16
+811,Brushing My Teeth Each Day,12,26
+812,Learning to Tie My Shoes,14,24
+813,Being Gentle with Pets,5,22
+814,Wearing My Seatbelt,4,19
+815,Raising My Hand in Class,2,24
+816,Staying Calm in a Storm,1,23
+817,Sharing Snacks with Friends,9,27
+818,Using Words to Solve Problems,10,29
+819,Following Directions at School,2,30
+820,Playing Safely on the Playground,14,32
+821,Using the Bathroom Neatly,3,25
+822,Greeting Friends in the Morning,4,31
+823,Putting My Toys Away,10,20
+824,Sitting Still for a Short Time,4,30
+825,Bringing My Homework Back,8,25
+826,Using Good Manners at Lunch,9,27
+827,Saying Excuse Me,1,16
+828,Painting Carefully,10,18
+829,Waiting My Turn at the Water Fountain,4,37
+830,Being Polite on the Bus,1,23
+831,Asking Before Borrowing,12,23
+832,Staying Calm During Fire Drills,1,31
+833,Eating Slowly at Mealtime,9,25
+834,Being Honest,11,12
+835,Helping a Sad Friend,5,20
+836,Using Scissors Safely,10,21
+837,Sitting at the Table to Eat,9,27
+838,Keeping My Desk Organized,8,25
+839,Wearing the Right Clothes,4,25
+840,Noticing When Others Speak,1,26
+841,Playing Gently with Babies,10,26
+842,Keeping the Classroom Floor Clean,3,33
+843,Saying Sorry,1,12
+844,Staying with My Group,4,21
+845,Turning Off Lights When Leaving,4,31
+846,Being Quiet in the Library,1,26
+847,Using Friendly Words,1,20
+848,Drinking Water During the Day,12,29
+849,Waiting for My Family at Pickup,4,31
+850,Visiting a Planetarium,6,22
+851,Exploring a Medieval Castle,6,27
+852,Attending a Family Reunion,2,26
+853,Our Community Cleanup Day,3,25
+854,Planting Trees in the Park,6,26
+855,Helping Out at a Homeless Shelter,5,33
+856,Celebrating a Cultural Festival,2,31
+857,Volunteering at the School Fundraiser,2,37
+858,Spending a Weekend at Aunt’s Farmhouse,6,38
+859,Going Ice Skating for the First Time,14,36
+860,Attending a Local Art Fair,2,26
+861,Day Trip to the Mountains,6,25
+862,Learning Archery at Summer Camp,14,31
+863,A Sleepover at My Cousin’s House,4,32
+864,Trying Out for the School Play,14,30
+865,Celebrating a Big Holiday with Family,6,37
+866,A Weekend at the Ski Resort,6,27
+867,Visiting a Butterfly Sanctuary,6,30
+868,Going to the Circus,4,19
+869,Attending a Robotics Competition,14,32
+870,Exploring a Ghost Town,6,22
+871,A Day at the Science Center,2,27
+872,Visiting a Historical Battlefield,6,33
+873,My Experience in a School Talent Show,2,37
+874,Helping My Neighbor with Groceries,9,34
+875,Going to a Farmer’s Market,6,26
+876,Exploring Tidal Pools by the Shore,6,34
+877,Learning How to Fish at the Lake,14,32
+878,Watching a Soccer Match Live,14,28
+879,Building a Treehouse with Dad,6,29
+880,Visiting a Horse Ranch,6,22
+881,Picking Fruit at an Orchard,9,27
+882,Attending a Summer Music Festival,2,33
+883,Making Crafts at a Community Workshop,2,37
+884,Spending a Day at a Water Park,6,30
+885,Going to a Dog Show,4,19
+886,Overnight Trip with My Scout Troop,6,34
+887,Attending a Comic Book Convention,2,33
+888,A Day Exploring the City,6,24
+889,Vacation at a Mountain Cabin,6,28
+890,Flying a Kite on the Hill,14,25
+891,Trying Indoor Rock Climbing,14,27
+892,Painting a Mural at School,2,26
+893,Family Road Trip Across the State,6,33
+894,Attending a Nature Photography Workshop,6,39
+895,Taking Care of Grandma’s Garden,6,31
+896,Visiting a Lighthouse by the Sea,6,32
+897,A Day Helping at the Animal Sanctuary,6,37
+898,Volunteering at a Soup Kitchen,9,30
+899,Attending a School Science Fair,2,31
+900,Feeding Our Dog,9,15
+901,Saying Hello,1,12
+902,Putting On My Shoes,4,19
+903,Brushing My Hair,12,16
+904,Saying Please,1,13
+905,Building with Blocks,10,20
+906,Washing My Face,12,15
+907,Learning to Zip My Jacket,10,25
+908,Sharing Toys,10,12
+909,Looking Both Ways,4,17
+910,Sitting on a Chair,4,18
+911,Feeding a Fish,9,14
+912,Saying Thank You,5,16
+913,Cleaning Up My Toys,3,19
+914,Trying a New Food,9,17
+915,Using Gentle Hands,10,18
+916,Saying Sorry,1,12
+917,Wearing a Hat,4,13
+918,Drinking from a Cup,9,19
+919,Learning Animal Sounds,14,22
+920,Putting On My Shirt,4,19
+921,Using an Indoor Voice,4,21
+922,Saying Goodbye,1,14
+923,Drinking with a Straw,12,21
+924,Helping Water Plants,5,20
+925,Watching a Bird in a Tree,6,25
+926,Waiting My Turn,4,15
+927,Putting Away Crayons,10,20
+928,Using a Tissue,10,14
+929,Finding My Bedtime Teddy,4,24
+930,Picking Up Books,8,16
+931,Being Kind to Bugs,5,18
+932,Learning Colors,14,15
+933,Holding a Cup with Two Hands,9,28
+934,Talking to a Friend,1,19
+935,Going to the Bathroom,4,21
+936,Feeding the Birds Outside,9,25
+937,Holding Hands While Crossing,10,28
+938,Putting on Socks,10,16
+939,Brushing My Teeth,12,17
+940,Playing with Stuffed Animals,10,28
+941,Learning Shapes,14,15
+942,Walking in the House,4,20
+943,Trying Buttons on My Shirt,10,26
+944,Holding a Crayon Correctly,10,26
+945,Washing Fruit Before Eating,12,27
+946,Sitting Still at Story Time,4,27
+947,Knocking on a Door,4,18
+948,Not Touching Hot Things,10,23
+949,Turning Off the TV,4,18
+950,Helping Plan a Surprise Party,2,29
+951,Experiencing a Solar Eclipse,6,28
+952,Exploring a Cave with My Family,6,31
+953,Staying Overnight at the Hospital to Visit Someone,4,50
+954,Hosting a Garage Sale,6,21
+955,Exploring a Big City’s Subway System,6,36
+956,Going to a County Fair,6,22
+957,Visiting a Wind Farm,6,20
+958,Exploring a Coral Reef Exhibit,6,30
+959,A Day at the Go-Kart Track,14,26
+960,Attending a Shakespeare in the Park Event,2,41
+961,Discovering Local History on a Walking Tour,6,43
+962,Going Camping in the Desert,6,27
+963,Trying Out Paddleboarding,14,25
+964,Watching a Meteor Shower Late at Night,4,38
+965,Taking a Pottery Class,2,22
+966,Learning About Astronomy at a Star Party,2,40
+967,Visiting a Chocolate Factory,6,28
+968,A Trip to the Antique Market,6,28
+969,Entering a Sandcastle-Building Contest,14,38
+970,Attending a Sibling’s Graduation Ceremony,2,41
+971,Observing Wildlife on a Safari Ride,6,35
+972,Celebrating a Traditional Harvest Festival,6,42
+973,A Day with Local Firefighters,6,29
+974,Learning to Surf at the Beach,14,29
+975,Helping With a Neighborhood Bake Sale,9,37
+976,Participating in a School Exchange Program,2,42
+977,Exploring a Volcano Exhibit,6,27
+978,Going on a Whale Watching Trip,6,30
+979,Taking Part in a Holiday Parade,6,31
+980,Visiting a Friend in Another Country,6,36
+981,Hiking on a Forest Trail,6,24
+982,Celebrating a Community Cultural Night,2,38
+983,Touring a Television Studio,6,27
+984,Practicing Good Sportsmanship,14,29
+985,How to Speak Clearly in Front of Others,1,39
+986,Mastering Basic First Aid,5,25
+987,How to Manage My Time After School,8,34
+988,Learning to Cook a Simple Meal,9,30
+989,Effectively Using a Planner,8,27
+990,Building Healthy Study Habits,8,29
+991,How to Organize My Backpack,8,27
+992,Developing Active Listening Skills,1,34
+993,Learning to Read Maps,8,21
+994,How to Be a Good Team Player,14,28
+995,Respecting Classroom Rules,2,26
+996,How to Give a Compliment,1,24
+997,Politely Disagreeing with Someone,1,33
+998,Speaking Up for Myself,1,22
+999,Using Public Transportation Safely,4,34

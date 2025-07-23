@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
+// import storyData from './backend/similarity_results_all_labels.json';
+import similarStoriesData from '/Users/morayo/Desktop/react_people_swap/frontend/src/similarity_results_all_labels.json';
 
 function b64toFile(dataURL, filename) {
   const [header, b64] = dataURL.split(',')
@@ -28,7 +30,7 @@ function resizeBase64Img(base64, width = 512, height = 512) {
 
 
 function App() {
-  const [useFullImage] = useState(true); // default to full image
+  const [useFullImage] = useState(false); // default to full image
   const [fullImageBase64, setFullImageBase64] = useState(null);
   const [qaAnswers, setQaAnswers] = useState({});
   const [finalPrompt, setFinalPrompt] = useState('');
@@ -45,9 +47,10 @@ function App() {
   const [qaContext, setQaContext] = useState('');
 
   const [showPromptEditor, setShowPromptEditor] = useState(false);
-
   // const [qaQuestion, setQaQuestion] = useState('');
   // const [qaAnswer, setQaAnswer] = useState('');
+  const [currentIndex, setCurrentIndex] = useState(0); // make sure this is in your state
+
   const [selectedFaceIndex, setSelectedFaceIndex] = useState(null);
   const [faceBoxes] = useState([]);
   const preExistingScenarios = [
@@ -58,25 +61,12 @@ function App() {
     "____ goes to the doctor and talks about their symptoms."
   ];
 
-  // const handleImageUpload = async (event) => {
-  //   const file = event.target.files[0];
-  //   if (!file) return;
 
-  //   const reader = new FileReader();
-  //   reader.onloadend = () => setImagePreview(reader.result);
-  //   reader.readAsDataURL(file);
 
-  //   const formData = new FormData();
-  //   formData.append('file', file);
-
-  //   const res = await fetch('http://localhost:8811/upload-image', {
-  //     method: 'POST',
-  //     body: formData,
-  //   });
-
-  //   const data = await res.json();
-  //   setFaces(data.faces || []);
-  // };
+  const [selectedLabel, setSelectedLabel] = useState('');
+  // const selectedStoryEntry = similarStoriesData.find(entry => entry.label === selectedLabel);
+  // const selectedLines = selectedStoryEntry?.similar_story_1?.split('\n').filter(Boolean).slice(0, 3) || [];
+  const [generatedImages, setGeneratedImages] = useState([null, null, null]);
   const handleImageUpload = async (event) => {
     const file = event.target.files[0];
     if (!file) return;
@@ -275,8 +265,54 @@ function App() {
     return <span dangerouslySetInnerHTML={{ __html: coloredText }} />;
   };
 
+  const handleGenerateStoryLines = async (lines) => {
+    setLoading(true);
+    const results = [];
 
+    for (const line of lines) {
+      const fd = new FormData();
 
+      // 🧠 Append face labels to prompt
+      const prompt = `${line} person one${approvedFaces.length > 1 ? ' person two' : ''}`;
+
+      const resized = await resizeBase64Img(approvedFaces[0], 512, 512);
+      fd.append('ref_image1', b64toFile(resized, 'face1.jpg'));
+      fd.append('ref_task1', 'ip');
+
+      if (approvedFaces.length > 1) {
+        const resized2 = await resizeBase64Img(approvedFaces[1], 512, 512);
+        fd.append('ref_image2', b64toFile(resized2, 'face2.jpg'));
+        fd.append('ref_task2', 'ip');
+      }
+
+      fd.append('prompt', prompt);
+      fd.append('ref_res', '512');
+      fd.append('seed', '-1');
+      fd.append('guidance_scale', '7.5');
+      fd.append('num_inference_steps', '30');
+      fd.append('true_cfg_scale', '1.0');
+      fd.append('true_cfg_start_step', '0');
+      fd.append('true_cfg_end_step', '0');
+      fd.append('negative_prompt', '');
+      fd.append('neg_guidance_scale', '3.5');
+      fd.append('first_step_guidance_scale', '4.5');
+
+      try {
+        const res = await fetch('http://localhost:8811/generate-image', {
+          method: 'POST',
+          body: fd,
+        });
+        const { image } = await res.json();
+        results.push(image);
+      } catch (err) {
+        console.error(err);
+        results.push(null);
+      }
+    }
+
+    setGeneratedImages(results);
+    setLoading(false);
+  };
   return (
     <div className="app">
 
@@ -352,7 +388,10 @@ function App() {
             <h2>Pre-Existing Prompts</h2>
             <div className="pre-existing-list">
               {preExistingScenarios.map((s, i) => (
-                <div key={i} className="pre-item" onClick={() => setSelectedScenario(s)}>
+                <div key={i} className="pre-item" onClick={() => {
+                  setSelectedScenario(s);
+                  setFinalPrompt('');
+                }}>
                   {s}
                 </div>
               ))}
@@ -519,6 +558,115 @@ function App() {
         </section>
       )}
 
+
+      <section className="card-box">
+        <h2 className="section-heading">3 Story Prompt</h2>
+
+        <label htmlFor="label-select" style={{ fontWeight: 'bold', display: 'block', marginBottom: '0.5rem' }}>
+          Select a Label:
+        </label>
+        <select
+          id="label-select"
+          value={selectedLabel}
+          onChange={(e) => {
+            const selected = e.target.value;
+            setSelectedLabel(selected);
+            setGeneratedImages([null, null, null]);
+
+            const entry = similarStoriesData.find(e => e.label === selected);
+            if (entry?.text) {
+              setQaContext(entry.text); // Auto-fill context
+            }
+          }}
+          style={{
+            width: '100%',
+            padding: '0.5rem 1rem',
+            border: '1px solid #ccc',
+            borderRadius: '8px',
+            fontSize: '1rem',
+            backgroundColor: '#f9f9f9',
+            cursor: 'pointer',
+            appearance: 'none',
+            marginBottom: '1rem'
+          }}
+        >
+          <option value="">-- Choose a Label --</option>
+          {[...new Set(similarStoriesData.map(entry => entry.label))].map((label, i) => (
+            <option key={i} value={label}>
+              {label}
+            </option>
+          ))}
+        </select>
+
+        {selectedLabel && (() => {
+          const entry = similarStoriesData.find(e => e.label === selectedLabel);
+          const lines = entry?.similar_story_1?.split('\n').filter(Boolean).slice(0, 3) || [];
+
+          return (
+            <>
+              {/* ✨ Nicely styled Parent Text */}
+              <div
+                style={{
+                  backgroundColor: '#f9f9ff',
+                  border: '1px solid #ddd',
+                  borderLeft: '4px solid #6c63ff',
+                  padding: '1rem',
+                  borderRadius: '8px',
+                  marginBottom: '1.5rem',
+                  fontSize: '0.95rem',
+                  lineHeight: '1.6',
+                  color: '#333'
+                }}
+              >
+                <strong style={{ display: 'block', marginBottom: '0.5rem', fontSize: '1rem', color: '#2c2c2c' }}>
+                  Parent Text:
+                </strong>
+                <div style={{ whiteSpace: 'pre-wrap' }}>
+                  {entry.text}
+                </div>
+              </div>
+
+              {/* ✨ Generated Images + Text */}
+              <div style={{ display: 'flex', gap: '1rem', marginTop: '1.5rem' }}>
+                {lines.map((line, i) => (
+                  <div key={i} style={{ flex: 1, textAlign: 'center' }}>
+                    <div style={{
+                      width: '100%',
+                      aspectRatio: '1 / 1',
+                      background: '#eee',
+                      border: '1px solid #ccc',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center'
+                    }}>
+                      {generatedImages[i] ? (
+                        <img
+                          src={`data:image/png;base64,${generatedImages[i]}`}
+                          alt={`Generated ${i + 1}`}
+                          style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                        />
+                      ) : (
+                        <span>Waiting for generation…</span>
+                      )}
+                    </div>
+                    <p style={{ marginTop: '0.5rem' }}>{line}</p>
+                  </div>
+                ))}
+              </div>
+
+              <button
+                className="edit-btn"
+                style={{ marginTop: '1rem' }}
+                onClick={() => handleGenerateStoryLines(lines)}
+                disabled={loading || !approvedFaces.length}
+              >
+                {loading ? 'Generating…' : 'Generate 3 Images'}
+              </button>
+            </>
+          );
+        })()}
+      </section>
+
       <section className="qa-test card-box">
         <h2>Extract Key Info from Context</h2>
 
@@ -558,34 +706,57 @@ function App() {
       </section>
 
 
-  <section className="story-matches card-box">
-    <h2 className="section-heading">Matched Stories from Dataset</h2>
 
-    <div className="label-block">
-      <strong>Label:</strong> {similarStoriesData[currentIndex].Label}
-    </div>
+      <section className="story-matches card-box">
+        <h2 className="section-heading" style={{ fontSize: '2rem', marginBottom: '1rem' }}>
+          {similarStoriesData[currentIndex].label}
+        </h2>
 
-    <div className="parent-description">
-      <strong>Parent Text:</strong> {similarStoriesData[currentIndex].text}
-    </div>
-
-    {[1, 2, 3].map((rank) => (
-      <div key={rank} className="matched-story">
-        <p>
-          <strong>Story {rank} (Similarity {similarStoriesData[currentIndex][`similarity_score_${rank}`]}):</strong>
-        </p>
-        <div className="story-text">
-          {similarStoriesData[currentIndex][`similar_story_${rank}`]
-            .split('\n')
-            .map((line, i) => (
-              <div key={i} style={{ paddingLeft: '2rem', textIndent: '1rem' }}>
-                {line}
-              </div>
-            ))}
+        <div
+          className="navigation-buttons"
+          style={{ marginBottom: '1.5rem', display: 'flex', justifyContent: 'space-between' }}
+        >
+          <button onClick={() => setCurrentIndex((i) => (i - 1 + similarStoriesData.length) % similarStoriesData.length)}>
+            ← Previous
+          </button>
+          <span>Viewing {currentIndex + 1} of {similarStoriesData.length}</span>
+          <button onClick={() => setCurrentIndex((i) => (i + 1) % similarStoriesData.length)}>
+            Next →
+          </button>
         </div>
-      </div>
-    ))}
-  </section>
+
+        <div className="parent-description" style={{ marginBottom: '1rem' }}>
+          <strong>Parent Text:</strong>
+          <div style={{ whiteSpace: 'pre-wrap', marginTop: '0.5rem', paddingLeft: '1rem' }}>
+            {similarStoriesData[currentIndex].text}
+          </div>
+        </div>
+
+        {[1, 2, 3].map((rank) => {
+          const story = similarStoriesData[currentIndex][`similar_story_${rank}`];
+          const score = similarStoriesData[currentIndex][`similarity_score_${rank}`];
+          return (
+            <div key={rank} className="matched-story" style={{ marginBottom: '1.5rem' }}>
+              <p style={{ fontWeight: 'bold' }}>
+                Story {rank} (Similarity: {score})
+              </p>
+              <div
+                className="story-text"
+                style={{
+                  background: '#f9f9f9',
+                  padding: '0.75rem',
+                  borderLeft: '4px solid #ccc',
+                  whiteSpace: 'pre-wrap',
+                  paddingLeft: '1.5rem',
+                  textIndent: '1rem',
+                }}
+              >
+                {story}
+              </div>
+            </div>
+          );
+        })}
+      </section>
 
 
     </div>

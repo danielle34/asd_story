@@ -10,4 +10,7 @@ mv frontend frontend_old
 npx create-react-app frontend
 cp frontend_old/src/App.js frontend/src/App.js
 cp frontend_old/src/App.css frontend/src/App.css
+cp frontend_old/src/similarity_results_all_labels.json frontend/src/similarity_results_all_labels.json
+cd frontend
 npm start
+
